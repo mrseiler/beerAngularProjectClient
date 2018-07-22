@@ -7,6 +7,9 @@ import { LandingModule } from './landing/landing.module';
 import { AuthModule } from './auth/auth.module';
 import { BrewersComponent } from './brewers/brewers.component';
 import { DrinkersComponent } from './drinkers/drinkers.component';
+import { UIComponent } from './ui/ui.component';
+import { FooterComponent } from './ui/footer/footer.component';
+import { NavComponent } from './ui/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +17,9 @@ import { DrinkersComponent } from './drinkers/drinkers.component';
     PageNotFoundComponent,
     BrewersComponent,
     DrinkersComponent,
+    FooterComponent,
+    NavComponent,
+    UIComponent,
   ],
   imports: [
     BrowserModule,

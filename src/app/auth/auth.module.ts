@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AuthComponent } from './auth.component';
 import { MatButtonModule } from '../../../node_modules/@angular/material/button';
+import { RouterModule } from '../../../node_modules/@angular/router';
 
 @NgModule({
   imports: 
   [
     CommonModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule,
   ],
   exports:
   [
