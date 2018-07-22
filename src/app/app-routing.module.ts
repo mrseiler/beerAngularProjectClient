@@ -9,7 +9,6 @@ const routes: Route[] = [
   { path: 'auth', component: AuthComponent,children:  [  ]},//using children helps auth figure out what children it has 'can be used later for finishing up'
   {path: 'landing', component: LandingComponent},
   {path: '**', component:PageNotFoundComponent}
-
 ];
 
 @NgModule({

@@ -5,11 +5,15 @@ import { AppRoutingModule } from './/app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LandingModule } from './landing/landing.module';
 import { AuthModule } from './auth/auth.module';
+import { BrewersComponent } from './brewers/brewers.component';
+import { DrinkersComponent } from './drinkers/drinkers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    BrewersComponent,
+    DrinkersComponent,
   ],
   imports: [
     BrowserModule,
