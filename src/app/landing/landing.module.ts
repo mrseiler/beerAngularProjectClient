@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material';
 import { LandingComponent } from './landing.component';
+import { MatToolbarModule } from '../../../node_modules/@angular/material';
+import { MatButtonModule } from '../../../node_modules/@angular/material';
 @NgModule({
   imports: 
   [
     CommonModule,
-    MatButtonModule
+    MatToolbarModule,
+    MatButtonModule,
   ],
   exports: 
   [
-    MatButtonModule
+  CommonModule,
+  MatToolbarModule,
+  MatButtonModule,
   ],
 
   declarations:
   [
-    LandingComponent
+    LandingComponent,
   ]
 })
 export class LandingModule { }

@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AuthComponent } from './auth.component';
+import { MatButtonModule } from '../../../node_modules/@angular/material/button';
 
 @NgModule({
   imports: 
   [
     CommonModule,
-    MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   exports:
   [
-    MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
-  declarations: []
+  declarations: [AuthComponent]
 })
 export class AuthModule { }
