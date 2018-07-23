@@ -5,14 +5,19 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LandingModule } from './landing/landing.module';
-import { AuthModule } from './auth/auth.module';
 import { BrewersComponent } from './brewers/brewers.component';
 import { DrinkersComponent } from './drinkers/drinkers.component';
 import { UIComponent } from './ui/ui.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { NavComponent } from './ui/nav/nav.component';
 import { AuthService } from './services/auth.service';
-import { HttpModule } from '@angular/http';
+import { HttpModule} from '@angular/http';
+import { DrinkersSignupComponent } from './auth/drinkers-signup/drinkers-signup.component';
+import { AuthComponent } from './auth/auth.component';
+import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatTableModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 
 @NgModule({
   declarations: [
@@ -23,15 +28,24 @@ import { HttpModule } from '@angular/http';
     FooterComponent,
     NavComponent,
     UIComponent,
+    DrinkersSignupComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LandingModule,
-    AuthModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatTableModule,
+    BrowserAnimationsModule
     
   ],
   providers: [AuthService],
