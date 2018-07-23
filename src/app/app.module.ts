@@ -10,6 +10,7 @@ import { DrinkersComponent } from './drinkers/drinkers.component';
 import { UIComponent } from './ui/ui.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { NavComponent } from './ui/nav/nav.component';
+import { ReactiveFormsModule } from '../../node_modules/@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { NavComponent } from './ui/nav/nav.component';
     BrowserModule,
     AppRoutingModule,
     LandingModule,
-    AuthModule
+    AuthModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

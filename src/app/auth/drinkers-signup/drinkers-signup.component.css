@@ -1,0 +1,12 @@
+
+.actual-card{
+    height: 25%;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12em;
+}
+.form-fields{
+    display: block;
+    margin-right: 55%;
+}
