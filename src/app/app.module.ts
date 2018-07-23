@@ -13,13 +13,12 @@ import { BrowserAnimationsModule } from '../../node_modules/@angular/platform-br
 import { RouterModule } from '../../node_modules/@angular/router';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
-import { BrewersSignupComponent } from './auth/brewers-signup/brewers-signup.component';
-import { BrewersLoginComponent } from './auth/brewers-login/brewers-login.component';
 import { DrinkersSignupComponent } from './auth/drinkers-signup/drinkers-signup.component';
 import { DrinkersLoginComponent } from './auth/drinkers-login/drinkers-login.component';
 import { UIComponent } from './ui/ui.component';
 import { NavComponent } from './ui/nav/nav.component';
 import { FooterComponent } from './ui/footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +27,12 @@ import { FooterComponent } from './ui/footer/footer.component';
     BrewersComponent,
     DrinkersComponent,
     AuthComponent,
-    BrewersSignupComponent, 
-    BrewersLoginComponent,
     DrinkersSignupComponent, 
     DrinkersLoginComponent,
     UIComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
