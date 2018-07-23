@@ -9,27 +9,32 @@ import { AuthService } from '../../services/auth.service';
 })
 export class DrinkersSignupComponent implements OnInit {
  
-  private registerForm: FormGroup;
+  public registerForm: FormGroup;
 
-  constructor(private form: FormBuilder, public auth: AuthService) {
-    this.createForm();
+  firstname: string;
+  lastname: string;
+  username: string;
+  email: string;
+  password: string;
+  users: Object[] = [];
+
+  constructor(public form: FormBuilder, public auth: AuthService) {
    }
 
   ngOnInit() {
   }
 
-  createForm() { 
-    this.registerForm = this.form.group({
-      first_name: new FormControl,
-      last_name: new FormControl,
-      username: new FormControl,
-      email: new FormControl,
-      password: new FormControl,
-      passwordConfirm: new FormControl
-    });
-  }
   onSubmit() {
-    console.log(this.registerForm.value);
-    //this.auth.register(this.registerForm.value).subscribe( () => this.auth.login(this.registerForm.value));
+    var newUser = { user: {
+      firstname: this.firstname,
+      lastname: this.lastname,
+      username: this.username,
+      email: this.email,
+      password: this.password
+    }}
+    console.log(newUser);
+    this.auth.register(newUser).subscribe(data => {
+      this.users.push(data);
+    });
   }
 }

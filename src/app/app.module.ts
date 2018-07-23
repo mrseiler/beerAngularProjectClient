@@ -19,6 +19,7 @@ import { UIComponent } from './ui/ui.component';
 import { NavComponent } from './ui/nav/nav.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { HomeComponent } from './home/home.component';
     MatSidenavModule
     
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
