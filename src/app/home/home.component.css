@@ -12,6 +12,9 @@
     display: grid;
     grid-template-columns: 40% 20% 40%;
 }
-.colors{
-    border: black 1px solid;
+.recommendedItems{
+    margin: 2%;
+}
+.feedItems{
+    margin: 2%;
 }
