@@ -1,3 +1,5 @@
-a{
-    text-decoration: none;
+.gridlines{
+    border: solid 1px black;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
 }
