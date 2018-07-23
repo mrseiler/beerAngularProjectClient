@@ -11,26 +11,26 @@ import { DrinkersLoginComponent } from './drinkers-login/drinkers-login.componen
 import { MatCardModule, MatFormFieldModule, MatInputModule } from '../../../node_modules/@angular/material';
 
 @NgModule({
-  imports: 
-  [
-    CommonModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    RouterModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule
-  ],
+    imports: 
+    [
+      CommonModule,
+      BrowserAnimationsModule,
+      MatButtonModule,
+      RouterModule,
+      MatCardModule,
+      MatFormFieldModule,
+      MatInputModule
+    ],
   exports:
   [
     BrowserAnimationsModule,
   ],
   declarations: [
-    AuthComponent,
-     BrewersSignupComponent, 
-     BrewersLoginComponent,
-    DrinkersSignupComponent, 
-    DrinkersLoginComponent,
+      AuthComponent,
+      BrewersSignupComponent, 
+      BrewersLoginComponent,
+      DrinkersSignupComponent, 
+      DrinkersLoginComponent,
   ]
 })
 export class AuthModule { }

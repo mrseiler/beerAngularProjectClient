@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { LandingModule } from './landing/landing.module';
 import { AuthModule } from './auth/auth.module';
 import { BrewersComponent } from './brewers/brewers.component';
 import { DrinkersComponent } from './drinkers/drinkers.component';
-import { UIComponent } from './ui/ui.component';
-import { FooterComponent } from './ui/footer/footer.component';
-import { NavComponent } from './ui/nav/nav.component';
 import { ReactiveFormsModule } from '../../node_modules/@angular/forms';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatToolbarModule } from '../../node_modules/@angular/material';
+import { UIComponent } from './ui/ui.component';
+import { NavComponent } from './ui/nav/nav.component';
+import { FooterComponent } from './ui/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,19 +18,25 @@ import { ReactiveFormsModule } from '../../node_modules/@angular/forms';
     PageNotFoundComponent,
     BrewersComponent,
     DrinkersComponent,
-    FooterComponent,
-    NavComponent,
-    UIComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LandingModule,
     AuthModule,
     ReactiveFormsModule,
-    
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap:
+   [
+    AppComponent,
+    UIComponent,
+    NavComponent,
+    FooterComponent
+   ]
 })
 export class AppModule { }
