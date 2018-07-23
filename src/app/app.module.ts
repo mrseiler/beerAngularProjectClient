@@ -4,12 +4,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AuthModule } from './auth/auth.module';
 import { BrewersComponent } from './brewers/brewers.component';
 import { DrinkersComponent } from './drinkers/drinkers.component';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatToolbarModule } from '../../node_modules/@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatCheckboxModule, MatTableModule } from '../../node_modules/@angular/material';
 import { AuthService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '../../node_modules/@angular/platform-browser/animations';
+import { RouterModule } from '../../node_modules/@angular/router';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
+import { BrewersSignupComponent } from './auth/brewers-signup/brewers-signup.component';
+import { BrewersLoginComponent } from './auth/brewers-login/brewers-login.component';
+import { DrinkersSignupComponent } from './auth/drinkers-signup/drinkers-signup.component';
+import { DrinkersLoginComponent } from './auth/drinkers-login/drinkers-login.component';
+import { UIComponent } from './ui/ui.component';
+import { NavComponent } from './ui/nav/nav.component';
+import { FooterComponent } from './ui/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +27,18 @@ import { HttpModule } from '@angular/http';
     PageNotFoundComponent,
     BrewersComponent,
     DrinkersComponent,
+    AuthComponent,
+    BrewersSignupComponent, 
+    BrewersLoginComponent,
+    DrinkersSignupComponent, 
+    DrinkersLoginComponent,
+    UIComponent,
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
@@ -29,7 +46,20 @@ import { HttpModule } from '@angular/http';
     MatInputModule,
     MatToolbarModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    RouterModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatCheckboxModule,
+    MatTableModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    HttpModule,
+    HttpClientModule
+    
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
