@@ -19,22 +19,11 @@ export class DrinkersSignupComponent implements OnInit {
   users: Object[] = [];
 
   constructor(public form: FormBuilder, public auth: AuthService) {
-    this.createForm();
    }
 
   ngOnInit() {
   }
 
-  createForm() { 
-    this.registerForm = this.form.group({
-      firstname: new FormControl,
-      lastname: new FormControl,
-      username: new FormControl,
-      email: new FormControl,
-      password: new FormControl,
-      confirmpassword: new FormControl
-    });
-  }
   onSubmit() {
     var newUser = { user: {
       firstname: this.firstname,
