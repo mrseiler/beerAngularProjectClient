@@ -5,3 +5,13 @@
     display: grid;
     grid-template-columns: 20% 80%;  
 }
+.expansionPanels{
+    margin: .5%;
+}
+.dashGridArea{
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+}
+.colors{
+    border: black 1px solid;
+}
