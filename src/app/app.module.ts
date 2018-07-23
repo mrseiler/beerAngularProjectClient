@@ -17,6 +17,7 @@ import { AuthComponent } from './auth/auth.component';
 import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatTableModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     BrowserAnimationsModule
     
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
