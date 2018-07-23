@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -10,7 +11,8 @@ import { DrinkersComponent } from './drinkers/drinkers.component';
 import { UIComponent } from './ui/ui.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { NavComponent } from './ui/nav/nav.component';
-import { ReactiveFormsModule } from '../../node_modules/@angular/forms';
+import { AuthService } from './services/auth.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,11 @@ import { ReactiveFormsModule } from '../../node_modules/@angular/forms';
     LandingModule,
     AuthModule,
     ReactiveFormsModule,
+    FormsModule,
+    HttpModule
     
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
