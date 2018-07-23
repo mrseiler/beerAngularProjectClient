@@ -10,7 +10,8 @@
 }
 .dashGridArea{
     display: grid;
-    grid-template-columns: 40% 20% 40%;
+    text-align: center;
+    grid-template-columns: 10% 35% 10% 35% 10%;
 }
 .recommendedItems{
     margin: 2%;
