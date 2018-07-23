@@ -1,5 +1,7 @@
-.gridlines{
-    border: solid 1px black;
+.gridarea{
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+}
+.gridlines{
+    display: grid;
+    grid-template-columns: 20% 80%;  
 }
