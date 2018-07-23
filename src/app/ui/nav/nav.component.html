@@ -1,6 +1,19 @@
 <mat-toolbar class="navbar" color="primary">
-    <span>Hold My Beer</span>
+    <span >
+        <a routerLink="/home" >Hold My Beer</a>
+    </span>
     <span class="spacing-css-toolbar"></span>
     <button mat-raised-button routerLink="/auth" class="nav-button" color="accent">Register</button>
-    <button mat-raised-button class="nav-button" color="accent">Logout</button>
+    <button mat-raised-button routerLink="/auth" class="nav-button" color="accent">Login</button>
   </mat-toolbar>
+<!-- 
+  <mat-toolbar class="navbar" color="primary">
+      <span >
+          <a routerLink="/home" >Hold My Beer</a>
+      </span>
+      <span class="spacing-css-toolbar"></span>
+      <button mat-raised-button routerLink="/auth" class="nav-button" color="accent">Beers</button>
+      <button mat-raised-button routerLink="/auth" class="nav-button" color="accent">Breweries</button>
+      <button mat-raised-button routerLink="/auth" class="nav-button" color="accent">Friends</button>
+      <button mat-raised-button routerLink="/auth" class="nav-button" color="accent">Logout</button>
+    </mat-toolbar> -->
