@@ -1,12 +1,10 @@
-
-.actual-card{
-    height: 25%;
-    width: 25%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 12em;
+.register-form-for-drinkers{
+    float: right;
+    margin-top: .5em;
+    padding: 1%;
+    text-align: center;
 }
-.form-fields{
-    display: block;
-    margin-right: 55%;
+.ptag{
+    font-size: .9em;
+    text-align: center;
 }
