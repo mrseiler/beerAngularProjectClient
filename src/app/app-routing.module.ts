@@ -17,7 +17,7 @@ const routes: Route[] = [
   { path: 'login', component: DrinkersLoginComponent},
   { path: 'mainnav', component: MainNavComponent, children: [
     {path: 'home', component: DashboardComponent},
-     {path: 'beers', component: BeersComponent}
+    {path: 'beers', component: BeersComponent}
   ]},
   { path: '**', component:PageNotFoundComponent }
 ];
