@@ -29,8 +29,8 @@ export class AuthService {
       // localStorage.clear();
       this.isLoggedIn.next(true);
       this.router.navigate(['/home']);
-    }),
-      alert('Wrong username/password combination');
+    })
+      //alert('Wrong username/password combination');
   }
 
   currentUser(): Observable<Object> {

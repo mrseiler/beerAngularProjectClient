@@ -7,16 +7,18 @@ import { DrinkersSignupComponent } from './auth/drinkers-signup/drinkers-signup.
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { BeersComponent } from './beers/beers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 //using children helps auth figure out what children it has 'can be used later for finishing up'
 const routes: Route[] = [ 
   { path: 'auth', component: AuthComponent },
   { path: 'signup', component: DrinkersSignupComponent },
   { path: 'login', component: DrinkersLoginComponent},
+  { path: 'mainnav', component: MainNavComponent},
   { path: 'home', component: DashboardComponent},
   { path: 'beer', component: BeersComponent},
   { path: '', redirectTo:'/auth', pathMatch: 'full' },
-  { path: '**', component:PageNotFoundComponent },
+  { path: '**', component:PageNotFoundComponent }
 ];
 
 @NgModule({
