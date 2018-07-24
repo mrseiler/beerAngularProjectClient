@@ -1,0 +1,18 @@
+@import "~font-awesome/css/font-awesome.css";
+
+.spacing{
+    flex: 1 1 auto;
+}
+.footer{
+    background: black;
+    color: white;
+    margin-top: 9em;
+    height: 3em;
+}
+.text {
+    padding-top: 1em;
+}
+.faicons{
+    float: right;
+    margin-right: 1em;
+}

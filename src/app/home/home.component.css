@@ -1,5 +1,24 @@
-.gridlines{
-    border: solid 1px black;
+.gridarea{
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+}
+.gridlines{
+    display: grid;
+    grid-template-columns: 20% 80%;  
+}
+.dashGridArea{
+    display: grid;
+    text-align: center;
+    grid-template-columns: 10% 35% 10% 35% 10%;
+}
+.recommendedItems{
+    margin: 2%;
+}
+.feedItems{
+    margin: 2%;
+}
+.expansion{
+    margin-left: 1em;
+}
+.text{
+    padding: 2%;
 }

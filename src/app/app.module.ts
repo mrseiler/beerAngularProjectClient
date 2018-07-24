@@ -17,7 +17,9 @@ import {
   MatInputModule, 
   MatCheckboxModule, 
   MatTableModule, 
-  MatCardModule 
+  MatCardModule, 
+  MatExpansionModule,
+  MatSelectModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -66,8 +68,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     MatInputModule,
     HttpModule,
     HttpClientModule,
-    MatCardModule
-    
+    MatCardModule,
+    MatExpansionModule,
+    MatSelectModule
   ],
   providers: [AuthService, JwtHelperService],
   bootstrap: [AppComponent]
