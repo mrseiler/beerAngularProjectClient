@@ -21,16 +21,20 @@ export class AuthService {
   }
 
   login(loginInfo) {
-    return this.http.post(`http://localhost:3000/api/user/login`, loginInfo).subscribe( (token) => {
+    return this.http.post(`http://localhost:3000/api/user/login`, loginInfo)
+    .subscribe( (token) => {
       console.log(token);
-      localStorage.clear();
       var data = Object.values(token);
       localStorage.setItem('token', data[2]);
       console.log("localstorage: ", localStorage)
       this.isLoggedIn.next(true);
-      this.router.navigate(['/home']);
-    })
-      //alert('Wrong username/password combination');
+      this.router.navigate(['/mainnav']);
+    },
+    err => {
+      console.log(err);
+      alert("Invalid Username/Password combination");
+    }
+  )
   }
 
   currentUser(): Observable<Object> {
