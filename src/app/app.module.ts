@@ -19,7 +19,8 @@ import {
   MatTableModule, 
   MatCardModule, 
   MatExpansionModule,
-  MatSelectModule
+  MatSelectModule,
+  MatGridListModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -27,12 +28,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { DrinkersSignupComponent } from './auth/drinkers-signup/drinkers-signup.component';
 import { DrinkersLoginComponent } from './auth/drinkers-login/drinkers-login.component';
 import { UIComponent } from './ui/ui.component';
-import { NavComponent } from './ui/nav/nav.component';
 import { FooterComponent } from './ui/footer/footer.component';
-import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BeersComponent } from './beers/beers.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -44,10 +46,10 @@ import { BeersComponent } from './beers/beers.component';
     DrinkersSignupComponent, 
     DrinkersLoginComponent,
     UIComponent,
-    NavComponent,
     FooterComponent,
-    HomeComponent,
-    BeersComponent
+    BeersComponent,
+    MainNavComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,13 @@ import { BeersComponent } from './beers/beers.component';
     HttpClientModule,
     MatCardModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule
   ],
   providers: [AuthService, JwtHelperService],
   bootstrap: [AppComponent]
