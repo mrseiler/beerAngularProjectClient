@@ -31,11 +31,8 @@ import { NavComponent } from './ui/nav/nav.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './services/auth-guard.service';
-<<<<<<< HEAD
 import { JwtHelperService } from '@auth0/angular-jwt';
-=======
 import { BeersComponent } from './beers/beers.component';
->>>>>>> 504c610f7a7c7c6e448ec404ca98fa25711117b7
 
 @NgModule({
   declarations: [

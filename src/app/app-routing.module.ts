@@ -5,11 +5,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DrinkersLoginComponent } from './auth/drinkers-login/drinkers-login.component';
 import { HomeComponent } from './home/home.component';
 import { DrinkersSignupComponent } from './auth/drinkers-signup/drinkers-signup.component';
-<<<<<<< HEAD
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
-=======
 import { BeersComponent } from './beers/beers.component';
->>>>>>> 504c610f7a7c7c6e448ec404ca98fa25711117b7
 
 //using children helps auth figure out what children it has 'can be used later for finishing up'
 const routes: Route[] = [ 
