@@ -20,6 +20,7 @@ import { NavComponent } from './ui/nav/nav.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { BeersComponent } from './beers/beers.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     UIComponent,
     NavComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    BeersComponent
   ],
   imports: [
     BrowserModule,

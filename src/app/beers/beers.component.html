@@ -1,0 +1,54 @@
+<div class="gridLines">
+  <div class="accordiondiv">
+    <mat-accordion>
+
+      <mat-expansion-panel class="expansion">
+        <mat-expansion-panel-header>
+          Beer
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <mat-select placeholder="Search by" [(value)]="selected">
+            <mat-option value="option1">Name </mat-option>
+            <mat-option value="option2">Type</mat-option>
+            <mat-option value="option3">Brewery</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Search" type="text">
+        </mat-form-field>
+        <button mat-raised-button>Search</button>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="expansion">
+        <mat-expansion-panel-header>
+          Friends
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <input matInput placeholder="Search" type="text">
+        </mat-form-field>
+        <button mat-raised-button>Search</button>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="expansion">
+        <mat-expansion-panel-header>
+          Brewery
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <input matInput placeholder="Search" type="text">
+        </mat-form-field>
+        <button mat-raised-button>Search</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+
+  <div class="beerCard">
+    <div></div>
+      <mat-card></mat-card>
+      <div></div>
+      <mat-card></mat-card>
+      <div></div>
+      <mat-card></mat-card>
+      <div></div>
+      <mat-card></mat-card>
+
+  </div>
+</div>
