@@ -24,13 +24,11 @@ import {
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-
+import { AuthGuard } from '../app/guards/auth.guard';
 import { DrinkersSignupComponent } from './auth/drinkers-signup/drinkers-signup.component';
 import { DrinkersLoginComponent } from './auth/drinkers-login/drinkers-login.component';
 import { UIComponent } from './ui/ui.component';
 import { FooterComponent } from './ui/footer/footer.component';
-import { AuthGuardService } from './services/auth-guard.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { BeersComponent } from './beers/beers.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -82,7 +80,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatListModule,
     MatMenuModule
   ],
-  providers: [AuthService, JwtHelperService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

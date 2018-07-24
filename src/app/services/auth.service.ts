@@ -28,7 +28,7 @@ export class AuthService {
       localStorage.setItem('token', data[2]);
       console.log("localstorage: ", localStorage)
       this.isLoggedIn.next(true);
-      this.router.navigate(['/mainnav']);
+      this.router.navigate(['/mainnav/home']);
     },
     err => {
       console.log(err);
