@@ -40,15 +40,13 @@
   </div>
 
 
-  <div class="beerCard">
-    <div></div>
-      <mat-card></mat-card>
-      <div></div>
-      <mat-card></mat-card>
-      <div></div>
-      <mat-card></mat-card>
-      <div></div>
-      <mat-card></mat-card>
-
-  </div>
+  <mat-grid-list class="materialgrid" cols="3" rowHeight="5em" gutterSize="10px">
+      <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+      <mat-card>{{tile.text}}</mat-card>
+  </mat-grid-tile>
+    </mat-grid-list>
 </div>
