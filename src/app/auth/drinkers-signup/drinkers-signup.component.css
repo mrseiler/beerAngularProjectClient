@@ -1,10 +1,36 @@
-.register-form-for-drinkers{
-    float: right;
-    margin-top: .5em;
-    padding: 1%;
+.background {
+    margin-top: -10px;
+    background: url('../../../assets/barbackground.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 92vh;
+}
+.wrapper {
+    background-color:white;
+    position: absolute;
+    width: 30%;
+    padding: 5px;
+    margin-right: auto;
+    margin-left: 2ch;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 80px;
+}
+.body {
+    margin-left: 1em;
+}
+.wrapper h2 {
     text-align: center;
 }
-.ptag{
-    font-size: .9em;
-    text-align: center;
+.wrapper a {
+    text-decoration: none;
+    color: black;
+}
+.wrapper a:hover {
+    text-decoration: underline;
+    opacity: .9;
+}
+.wrapper button {
+    background-color: rgb(240, 240, 48);
+    margin-bottom: 1em;
 }

@@ -23,13 +23,14 @@ export class AuthService {
   login(loginInfo) {
     return this.http.post(`http://localhost:3000/api/user/login`, loginInfo).subscribe( (token) => {
       console.log(token);
-      var data = token;
-      localStorage.setItem('token', data[1]);
-      console.log(localStorage)
-      localStorage.clear();
+      var data = Object.values(token);
+      localStorage.setItem('token', data[2]);
+      console.log("localstorage: ", localStorage)
+      // localStorage.clear();
       this.isLoggedIn.next(true);
       this.router.navigate(['/home']);
-    });
+    }),
+      alert('Wrong username/password combination');
   }
 
   currentUser(): Observable<Object> {

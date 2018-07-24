@@ -1,9 +1,11 @@
 .wrapper {
     background-color:white;
+    position: absolute;
     width: 30%;
     padding: 5px;
-    margin-left: 2em;
-    margin-top: 2px;
+    margin-left: 2ch;
+    margin-right: auto;
+    margin-top: 100px;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -12,6 +14,14 @@
 }
 .wrapper h2 {
     text-align: center;
+}
+.wrapper a {
+    text-decoration: none;
+    color: black;
+}
+.wrapper a:hover {
+    text-decoration: underline;
+    opacity: .9;
 }
 .wrapper button {
     background-color: rgb(240, 240, 48);
@@ -22,5 +32,5 @@
     background: url('../../../assets/barbackground.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 90vh;
+    height: 92vh;
 }

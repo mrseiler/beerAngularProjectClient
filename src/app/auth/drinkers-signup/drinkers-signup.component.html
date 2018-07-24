@@ -1,22 +1,40 @@
-
-<h3>Create a new account below</h3>
+<div class="background">
+<div class="wrapper">
+<hr color="black">
+<h2>Register</h2>
+<hr color="black">
 <div class="body">
   <form class="form" (ngSubmit)="onSubmit()">
     <div>
-        <input type="text" [(ngModel)]="firstname" name="firstname" placeholder="First Name">
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="firstname" name="firstname" placeholder="First Name">
+      </mat-form-field>
     </div>
     <div>
-      <input type="text" [(ngModel)]="lastname" name="lastname" placeholder="Last Name">
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="lastname" name="lastname" placeholder="Last Name">
+      </mat-form-field>
     </div>
     <div>
-      <input type="text" [(ngModel)]="email" name="email" placeholder="Email">
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="email" name="email" placeholder="Email">
+      </mat-form-field>
     </div>
     <div>
-      <input text="text" [(ngModel)]="username" name="username" placeholder="Username">
+      <mat-form-field>
+        <input matInput text="text" [(ngModel)]="username" name="username" placeholder="Username">
+      </mat-form-field>
     </div>
     <div>
-      <input type="password" [(ngModel)]="password" name="password" placeholder="Password">
+      <mat-form-field>
+        <input matInput type="password" [(ngModel)]="password" name="password" placeholder="Password">
+      </mat-form-field>
     </div>
-    <button>Submit</button>
+    <button mat-button>Register</button>
+    <div>
+      <a routerLink='/login'>Don't have an account?</a>
+    </div>
   </form>
+</div>
+</div>
 </div>

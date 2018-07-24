@@ -25,7 +25,6 @@ export class DrinkersLoginComponent implements OnInit {
     }}
     console.log(newUser);
     this.auth.login(newUser);
-    console.log(localStorage);
   }
 
 }
