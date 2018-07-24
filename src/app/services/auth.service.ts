@@ -24,7 +24,7 @@ export class AuthService {
     return this.http.post(`http://localhost:3000/api/user/login`, loginInfo).subscribe( (token) => {
       console.log(token);
       var data = token;
-      localStorage.setItem('id_token', data[1]);
+      localStorage.setItem('token', data[1]);
       console.log(localStorage)
       localStorage.clear();
       this.isLoggedIn.next(true);
