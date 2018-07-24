@@ -9,12 +9,17 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
+  isCollapsed: boolean = true;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
     
+  toggleCollapse(){
+    this.isCollapsed =!this.isCollapsed;
+  }
+  
   constructor(private breakpointObserver: BreakpointObserver) {}
   
   }

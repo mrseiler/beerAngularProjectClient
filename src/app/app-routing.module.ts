@@ -11,13 +11,14 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 
 //using children helps auth figure out what children it has 'can be used later for finishing up'
 const routes: Route[] = [ 
+  { path: '', redirectTo:'/auth', pathMatch: 'full' },
   { path: 'auth', component: AuthComponent },
   { path: 'signup', component: DrinkersSignupComponent },
   { path: 'login', component: DrinkersLoginComponent},
-  { path: 'mainnav', component: MainNavComponent},
-  { path: 'home', component: DashboardComponent},
-  { path: 'beer', component: BeersComponent},
-  { path: '', redirectTo:'/auth', pathMatch: 'full' },
+  { path: 'mainnav', component: MainNavComponent, children: [
+    {path: 'home', component: DashboardComponent},
+     {path: 'beers', component: BeersComponent}
+  ]},
   { path: '**', component:PageNotFoundComponent }
 ];
 
