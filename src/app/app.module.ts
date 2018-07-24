@@ -6,7 +6,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrewersComponent } from './brewers/brewers.component';
 import { DrinkersComponent } from './drinkers/drinkers.component';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatCheckboxModule, MatTableModule, MatSidenavModule, MatExpansionModule, MatSelectModule } from '../../node_modules/@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatCheckboxModule, MatTableModule, MatSidenavModule, MatExpansionModule, MatSelectModule, MatDividerModule } from '../../node_modules/@angular/material';
 import { AuthService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '../../node_modules/@angular/platform-browser/animations';
@@ -60,7 +60,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     HttpClientModule,
     MatSidenavModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule,
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]

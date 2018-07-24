@@ -5,9 +5,6 @@
     display: grid;
     grid-template-columns: 20% 80%;  
 }
-.expansionPanels{
-    margin: .5%;
-}
 .dashGridArea{
     display: grid;
     text-align: center;
@@ -18,4 +15,10 @@
 }
 .feedItems{
     margin: 2%;
+}
+.expansion{
+    margin-left: 1em;
+}
+.text{
+    padding: 2%;
 }
