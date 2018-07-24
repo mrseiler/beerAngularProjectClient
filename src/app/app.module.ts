@@ -49,7 +49,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FooterComponent,
     BeersComponent,
     MainNavComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

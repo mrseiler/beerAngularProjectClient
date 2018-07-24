@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BeerServiceService } from '../../app/services/beer-service.service'
 
 @Component({
   selector: 'app-beers',
@@ -6,21 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./beers.component.css']
 })
 export class BeersComponent implements OnInit {
+  beerlist:any
 
-
-  tiles=[
-    {text: 'one', cols: 1, rows:2, color:'red'},
-    {text: 'two', cols: 1, rows: 2, color:'red'},
-    {text: 'three', cols: 1, rows: 2, color:'red'},
-    {text: 'one', cols: 1, rows:2, color:'red'},
-    {text: 'two', cols: 1, rows: 2, color:'red'},
-    {text: 'three', cols: 1, rows: 2, color:'red'}
-  ]
-
-
-  constructor() { }
+  constructor(public service: BeerServiceService) { }
 
   ngOnInit() {
+    this.beerlist = this.service.getBeers();
+    console.log("beer: ",this.beerlist)
   }
 
 }
