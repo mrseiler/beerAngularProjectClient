@@ -3,7 +3,7 @@
     position: absolute;
     width: 30%;
     padding: 5px;
-    margin-left: 2ch;
+    margin-left: 55ch;
     margin-right: auto;
     margin-top: 100px;
     border: 1px solid black;
@@ -28,9 +28,8 @@
     margin-bottom: 1em;
 }
 .background {
-    margin-top: -10px;
     background: url('../../../assets/barbackground.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 92vh;
+    height: 100vh;
 }

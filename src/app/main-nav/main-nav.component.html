@@ -11,6 +11,8 @@
       <a mat-list-item routerLink="/home">Home</a>
       <a mat-list-item routerLink="/beer">Beer</a>
       <a mat-list-item routerLink="/logout">Logout</a>
+      <a mat-list-item routerLink="/login">Login</a>
+      <a mat-list-item routerLink="/signup">Signup</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -25,6 +27,6 @@
       </button>
       <span>beerClientApp</span>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <app-dashboard></app-dashboard>
   </mat-sidenav-content>
 </mat-sidenav-container>
