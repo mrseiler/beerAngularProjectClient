@@ -6,9 +6,8 @@
 .footer{
     position: relative;
     bottom: 0;
-    background: black;
+    background: rgb(245, 164, 15);
     color: white;
-    margin-top: 9em;
     height: 3em;
 }
 .text {
