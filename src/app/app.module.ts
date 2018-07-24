@@ -10,7 +10,15 @@ import { AuthService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '../../node_modules/@angular/router';
 import { AuthComponent } from './auth/auth.component';
-import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatTableModule } from '@angular/material';
+import {
+  MatToolbarModule, 
+  MatButtonModule, 
+  MatFormFieldModule, 
+  MatInputModule, 
+  MatCheckboxModule, 
+  MatTableModule, 
+  MatCardModule 
+} from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
@@ -21,6 +29,7 @@ import { NavComponent } from './ui/nav/nav.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -57,9 +66,10 @@ import { AuthGuardService } from './services/auth-guard.service';
     MatInputModule,
     HttpModule,
     HttpClientModule,
+    MatCardModule
     
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

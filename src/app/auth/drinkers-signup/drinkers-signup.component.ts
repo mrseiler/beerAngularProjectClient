@@ -36,5 +36,6 @@ export class DrinkersSignupComponent implements OnInit {
     this.auth.register(newUser).subscribe(data => {
       this.users.push(data);
     });
+    console.log(localStorage);
   }
 }
