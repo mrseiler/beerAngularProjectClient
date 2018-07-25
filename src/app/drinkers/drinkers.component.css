@@ -1,0 +1,7 @@
+.update {
+    background-color: yellow;
+}
+.delete {
+    margin-left: 1em;
+    background-color: red;
+}

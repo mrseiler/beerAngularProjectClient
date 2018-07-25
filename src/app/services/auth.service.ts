@@ -17,7 +17,8 @@ export class AuthService {
   constructor(public http: HttpClient, public router: Router) {}//, public jwtHelper: JwtHelperService) { }
 
   register(regUserData) {
-    return this.http.post(`http://localhost:3000/api/user/createuser`, regUserData, {headers: this.setHeader()});
+    return this.http.post(`http://localhost:3000/api/user/createuser`, regUserData, {headers: this.setHeader()})
+    
   }
 
   login(loginInfo) {
@@ -26,8 +27,12 @@ export class AuthService {
       // console.log(token);
       var data = Object.values(token);
       localStorage.setItem('token', data[2]);
-
-      // console.log("localstorage: ", localStorage)
+      localStorage.setItem('firstname', data[0].firstname);
+      localStorage.setItem('lastname', data[0].lastname);
+      localStorage.setItem('email', data[0].email);
+      localStorage.setItem('username', data[0].username);
+      localStorage.setItem('id', data[0].id);
+      console.log(localStorage);
       this.isLoggedIn.next(true);
       this.router.navigate(['/mainnav/home']);
     },
@@ -36,6 +41,9 @@ export class AuthService {
       alert("Invalid Username/Password combination");
     }
   )
+  }
+  updateUser(user) {
+    return this.http.put(`http://localhost:3000/api/user/update/${localStorage.id}`, user)
   }
   
   currentUser(): Observable<Object> {

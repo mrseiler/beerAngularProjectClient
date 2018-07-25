@@ -20,8 +20,13 @@ import {
   MatCardModule, 
   MatExpansionModule,
   MatSelectModule,
-  MatGridListModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule
+  MatGridListModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatMenuModule,
 } from '@angular/material';
+import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog'
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AuthGuard } from '../app/guards/auth.guard';
@@ -33,6 +38,7 @@ import { BeersComponent } from './beers/beers.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AccountDialogComponent, DialogOverviewExampleDialog } from './dialogs/account-dialog/account-dialog.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +54,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BeersComponent,
     MainNavComponent,
     DashboardComponent,
+    AccountDialogComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -78,9 +86,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
   ],
-  providers: [AuthService, AuthGuard],
-  bootstrap: [AppComponent]
+  providers: [AuthService, AuthGuard,AccountDialogComponent,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [AccountDialogComponent,DialogOverviewExampleDialog]
+
 })
 export class AppModule { }

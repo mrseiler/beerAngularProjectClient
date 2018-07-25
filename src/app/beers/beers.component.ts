@@ -2,15 +2,40 @@ import { Component, OnInit } from '@angular/core';
 import { BeerServiceService } from '../../app/services/beer-service.service'
 import { Beer } from '../models/beer'
 
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  textTitle: string;
+  beer: Beer[];
+  tiles: Tile[];
+ }
+
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
   styleUrls: ['./beers.component.css']
 })
 export class BeersComponent implements OnInit {
-  beerlist:any
-  beerArray:any;
 
+  /*tiles = [
+    {textTitle:'Beer Title', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+  ];*/
 
   beer: Beer = {
     beer:{
@@ -27,8 +52,12 @@ export class BeersComponent implements OnInit {
   constructor(public service: BeerServiceService) { }
 
   ngOnInit() {
+    this.getAllBeers();
+    for(let i=0; i < 10; i++) {
+      
+    }
     // this.addBeer(this.beer)
-    this.editBeer(this.beer)
+    //this.editBeer(this.beer)
   }
 
   addBeer = (data) =>{
@@ -54,6 +83,10 @@ export class BeersComponent implements OnInit {
 
   deleteBeer = (id) => {
     this.service.deleteBeer(id).subscribe()
+  }
+
+  getAllBeers = () => {
+    this.service.getBeers().subscribe();
   }
   
 }

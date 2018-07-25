@@ -1,1 +1,15 @@
-<mat-card>Hello</mat-card>
+<mat-grid-list cols="4" rowHeight="15.2em">
+    <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color"><mat-card>
+          <mat-card-title>
+            {{tile.textTitle}}
+          </mat-card-title>
+      <mat-card-content>
+        {{beers.name}}
+      </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
