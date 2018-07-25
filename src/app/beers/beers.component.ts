@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { BeerServiceService } from '../../app/services/beer-service.service'
 import { Beer } from '../models/beer'
 
+export interface Tile {
+    color: string;
+    cols: number;
+    rows: number;
+    textTitle: string;
+  } 
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
@@ -23,12 +29,39 @@ export class BeersComponent implements OnInit {
       validatedByBrewer:false
     }
   }
+  
+    tiles: Tile[] = [
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    ];
 
   constructor(public service: BeerServiceService) { }
 
   ngOnInit() {
     // this.addBeer(this.beer)
-    this.editBeer(this.beer)
+    // this.editBeer(this.beer)
+    this.getBeers()
+  }
+  getBeers = () => {
+    this.service.getBeers().subscribe((beers) => {
+      Object.values(beers).map((beer) => {
+        console.log(beer)
+      })
+    })
   }
 
   addBeer = (data) =>{
