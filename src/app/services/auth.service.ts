@@ -21,18 +21,23 @@ export class AuthService {
   }
 
   login(loginInfo) {
-    return this.http.post(`http://localhost:3000/api/user/login`, loginInfo).subscribe( (token) => {
-      console.log(token);
+    return this.http.post(`http://localhost:3000/api/user/login`, loginInfo)
+    .subscribe( (token) => {
+      // console.log(token);
       var data = Object.values(token);
       localStorage.setItem('token', data[2]);
-      console.log("localstorage: ", localStorage)
-      // localStorage.clear();
-      this.isLoggedIn.next(true);
-      this.router.navigate(['/home']);
-    })
-      //alert('Wrong username/password combination');
-  }
 
+      // console.log("localstorage: ", localStorage)
+      this.isLoggedIn.next(true);
+      this.router.navigate(['/mainnav/home']);
+    },
+    err => {
+      console.log(err);
+      alert("Invalid Username/Password combination");
+    }
+  )
+  }
+  
   currentUser(): Observable<Object> {
     if(!localStorage.getItem('id_token')) {return new Observable(observer => observer.next(false));}
     
@@ -45,7 +50,7 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  private setHeader(): HttpHeaders {
+  public setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
   /*public isAuthenticated(): boolean {
