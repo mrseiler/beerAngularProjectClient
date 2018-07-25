@@ -42,22 +42,4 @@ export class BeerServiceService {
     return this.http.delete(`http://localhost:3000/api/beer/deletebeer/${id}`, {headers:this.setHeader()})
   }
 
-  // login(loginInfo) {
-  //   return this.http.post(`http://localhost:3000/api/user/login`, loginInfo)
-  //   .subscribe( (token) => {
-  //     console.log(token);
-  //     var data = Object.values(token);
-  //     localStorage.setItem('token', data[2]);
-  //     console.log("localstorage: ", localStorage)
-  //     this.isLoggedIn.next(true);
-  //     this.router.navigate(['/mainnav']);
-  //   },
-  //   err => {
-  //     console.log(err);
-  //     alert("Invalid Username/Password combination");
-  //   }
-  // )
-  // }
-
-
 }
