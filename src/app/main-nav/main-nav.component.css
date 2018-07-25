@@ -1,6 +1,6 @@
 .sidenav-container {
   height: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .sidenav {
@@ -14,4 +14,7 @@
 }
 .spacing{
   height: 5%;
+}
+mat-sidenav{
+  box-shadow: 3px 0px 2px  rgba(0, 0, 0, 0.405)
 }

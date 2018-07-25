@@ -16,11 +16,11 @@ export interface Tile {
   styleUrls: ['./beers.component.css']
 })
 export class BeersComponent implements OnInit {
-  beerlist:any
+  beerlist:any;
   beerArray:any;
+  beers: any
 
-
-  beer: Beer = {
+  beer: Beer ={
     beer:{
       name:"Red Rye",
       brewery:"Founder's",
@@ -33,22 +33,22 @@ export class BeersComponent implements OnInit {
   }
   
     tiles: Tile[] = [
-      {cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
-      { cols: 1, rows: 1, color: 'lightgreen'},
+      {cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
+      { cols: 1, rows: 1, color: ''},
     ];
 
   constructor(public service: BeerServiceService) { }
