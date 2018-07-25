@@ -1,0 +1,45 @@
+<mat-card class="filter">
+  <button mat-raised-button [matMenuTriggerFor]="beer">Filter By:</button>
+
+  <mat-menu #beer="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="Type">Type</button>
+    <button mat-menu-item [matMenuTriggerFor]="Rating">Rating</button>
+  </mat-menu>
+  
+  <mat-menu #Type="matMenu">
+      <button mat-menu-item>'Type'</button>
+      <button mat-menu-item>'Type'</button>
+      <button mat-menu-item>'Type'</button>
+    </mat-menu>
+    
+    <mat-menu #Rating="matMenu">
+        <button mat-menu-item>'Rating'</button>
+        <button mat-menu-item>'Rating'</button>
+        <button mat-menu-item>'Rating'</button>
+        <button mat-menu-item>'Rating'</button>
+        <button mat-menu-item>'Rating'</button>
+      </mat-menu>
+  
+</mat-card>
+
+             <div class="card-container">
+              <mat-card *ngFor="let beer of beerArray"> 
+                <mat-card-title>
+                  {{beer.name}}
+                </mat-card-title>
+            <mat-card-content>
+              <ul >
+                <li>Brewery: {{beer.brewery}}</li>
+                <li>ABV: {{beer.abv}}</li>
+                <li>Style: {{beer.style}}</li>
+                <button mat-raised-button (click)="addToMyList(beer, 'Indy', 3, 'Worst ever')">Add user beer</button>
+                <!-- <li>{{beer.brewery}}</li>
+                <li>{{beer.brewerlocation}}</li> -->
+              </ul>
+            </mat-card-content>
+            </mat-card>
+            </div>
+            <mat-paginator [length]="100"
+            [pageSize]="10"
+            [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
-import { AuthService } from './auth.service'
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class BeerServiceService {
     return new HttpHeaders().set('Content-Type', 'application/json').set('authorization', `${localStorage.token}`);
   }
 
-  constructor(private http: HttpClient, private auth:AuthService) { }
+  constructor(private http: HttpClient) { }
 
   getBeers(){
     return this.http.get('http://localhost:3000/api/beer/getallbeers', {headers:this.setHeader()})
