@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountDialogComponent } from '../dialogs/account-dialog/account-dialog.component';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-drinkers',
@@ -8,14 +9,18 @@ import { AccountDialogComponent } from '../dialogs/account-dialog/account-dialog
 })
 export class DrinkersComponent implements OnInit {
 
-  firstname: string = localStorage.firstname;
-  lastname: string = localStorage.lastname;
-  email: string = localStorage.email;
-  username: string = localStorage.username;
+  firstname: string;
+  lastname: string;
+  email: string;
+  username: string;
 
-  constructor(public account: AccountDialogComponent) { }
+  constructor(public account: AccountDialogComponent, public auth: AuthService) { }
 
   ngOnInit() {
+  }
+
+  getUser() {
+    this.auth.getOneUser();
   }
 
   update() {

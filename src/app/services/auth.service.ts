@@ -57,6 +57,9 @@ export class AuthService {
     this.isLoggedIn.next(false);
     this.router.navigate(['/login']);
   }
+  getOneUser() {
+    return this.http.get(`http://localhost:3000/api/user/finduser/${localStorage.id}`);
+  }
 
   public setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
