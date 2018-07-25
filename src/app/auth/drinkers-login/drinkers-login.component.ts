@@ -23,7 +23,7 @@ export class DrinkersLoginComponent implements OnInit {
       username: this.username,
       password: this.password
     }}
-    console.log(newUser);
+    // console.log(newUser);
     this.auth.login(newUser);
   }
 

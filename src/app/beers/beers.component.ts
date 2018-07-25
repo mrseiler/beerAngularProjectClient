@@ -3,6 +3,7 @@ import { BeerServiceService } from '../services/beer-service.service'
 import { Beer } from '../models/beer'
 import { UserbeerService } from '../../app/services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
+import { DataService } from '../services/data.service'
 
 export interface Tile {
     color: string;
@@ -16,6 +17,10 @@ export interface Tile {
   styleUrls: ['./beers.component.css']
 })
 export class BeersComponent implements OnInit {
+  location:string;
+  rating:number;
+  comment:string;
+  currentUser: any;
   beerlist:any
   beerArray:any;
   userBeerArray:any;
@@ -54,7 +59,8 @@ export class BeersComponent implements OnInit {
     ];
 
   constructor(private service: BeerServiceService,
-              private userbeerservice: UserbeerService) {
+              private userbeerservice: UserbeerService,
+            private dataService: DataService) {
     // this.beerArray = this.getBeers()
     
    }
@@ -63,7 +69,8 @@ export class BeersComponent implements OnInit {
     // this.addBeer(this.beer)
     // this.editBeer(this.beer)
     this.getBeers()
-
+    // this.currentUser = this.dataService.getUser().subscribe();
+    console.log(this.currentUser)
   }
   getBeers = () => {
     this.service.getBeers().subscribe((beers) => {
@@ -133,4 +140,6 @@ export class BeersComponent implements OnInit {
     }
     this.userBeerCreate(this.userbeer)
   }
+
+  // setUserAsBrewer(isBrewer)
 }

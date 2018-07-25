@@ -39,14 +39,10 @@
         </mat-accordion>
       </div> -->
     
-      <mat-grid-list cols="4" rowHeight="15.2em"  *ngFor="let beer of beerArray">
-          <mat-grid-tile 
-              *ngFor="let tile of tiles"
-              
-              [colspan]="tile.cols"
-              [rowspan]="tile.rows"
-              [style.background]="tile.color">
-              <mat-card> 
+     
+           
+             <div class="card-container">
+              <mat-card *ngFor="let beer of beerArray"> 
                 <mat-card-title>
                   {{beer.name}}
                 </mat-card-title>
@@ -61,6 +57,6 @@
               </ul>
             </mat-card-content>
             </mat-card>
-          </mat-grid-tile>
-        </mat-grid-list>
+            </div>
+         
         

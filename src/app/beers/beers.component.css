@@ -1,0 +1,31 @@
+.card-container{
+    margin: 1em;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+}
+
+
+
+.card-info{
+    margin: 1em;
+}
+
+@media screen and (max-width: 770px){
+
+.card-container{
+    margin: 1em;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+}
+
+@media screen and (max-width: 420px){
+.card-container{
+    margin: 1em;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    }
+}
