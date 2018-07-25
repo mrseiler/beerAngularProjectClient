@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
+export interface Tile {
+    color: string;
+    cols: number;
+    rows: number;
+    textTitle: string;
+  } 
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
@@ -8,15 +13,25 @@ import { Component, OnInit } from '@angular/core';
 export class BeersComponent implements OnInit {
 
 
-  tiles=[
-    {text: 'one', cols: 1, rows:2, color:'red'},
-    {text: 'two', cols: 1, rows: 2, color:'red'},
-    {text: 'three', cols: 1, rows: 2, color:'red'},
-    {text: 'one', cols: 1, rows:2, color:'red'},
-    {text: 'two', cols: 1, rows: 2, color:'red'},
-    {text: 'three', cols: 1, rows: 2, color:'red'}
-  ]
-
+  
+    tiles: Tile[] = [
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    ];
 
   constructor() { }
 
