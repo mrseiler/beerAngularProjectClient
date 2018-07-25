@@ -4,25 +4,20 @@ import { Beer } from '../models/beer'
 import { UserbeerService } from '../../app/services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
-
-export interface Tile {
-    color: string;
-    cols: number;
-    rows: number;
-    textTitle: string;
-  } 
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
   styleUrls: ['./beers.component.css']
 })
 export class BeersComponent implements OnInit {
+  beerlist:any;
+  beerArray:any;
+  beers: any
+
   location:string;
   rating:number;
   comment:string;
   currentUser: any;
-  beerlist:any
-  beerArray:any;
   userBeerArray:any;
   searchedUserBeers:any;
   searchedBeers:any;
@@ -39,25 +34,6 @@ export class BeersComponent implements OnInit {
     }
   }
   
-    tiles: Tile[] = [
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    ];
-
   constructor(private service: BeerServiceService,
               private userbeerservice: UserbeerService,
             private dataService: DataService) {
@@ -66,11 +42,7 @@ export class BeersComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getAllBeers();
-    for(let i=0; i < 10; i++) {
-      
-    }
-    // this.addBeer(this.beer)
+    this.addBeer(this.beer)
     // this.editBeer(this.beer)
     this.getBeers()
     // this.currentUser = this.dataService.getUser().subscribe();

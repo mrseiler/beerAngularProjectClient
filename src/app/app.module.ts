@@ -25,6 +25,8 @@ import {
   MatIconModule,
   MatListModule,
   MatMenuModule,
+  MatPaginatorModule,
+  MatTreeModule
 } from '@angular/material';
 import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog'
 import { HttpClientModule } from '@angular/common/http';
@@ -88,6 +90,8 @@ import { AccountDialogComponent, DialogOverviewExampleDialog } from './dialogs/a
     MatListModule,
     MatMenuModule,
     MatDialogModule,
+    MatPaginatorModule,
+    MatTreeModule
   ],
   providers: [AuthService, AuthGuard,AccountDialogComponent,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],

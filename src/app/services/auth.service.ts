@@ -59,8 +59,8 @@ export class AuthService {
     this.isLoggedIn.next(false);
     this.router.navigate(['/login']);
   }
-  getOneUser() {
-    return this.http.get(`http://localhost:3000/api/user/finduser/${localStorage.id}`);
+  getOneUser(id) {
+    return this.http.get(`http://localhost:3000/api/user/finduser/${id}`, {headers: this.setHeader()}).pipe();
   }
 
   private setHeader(): HttpHeaders {

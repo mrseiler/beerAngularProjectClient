@@ -20,7 +20,9 @@ export class DrinkersComponent implements OnInit {
   }
 
   getUser() {
-    this.auth.getOneUser();
+    this.auth.getOneUser(localStorage.id).subscribe(user => {
+      console.log(user);
+    });
   }
 
   update() {
