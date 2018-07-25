@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 export interface Tile {
-    color: string;
-    cols: number;
-    rows: number;
-    textTitle: string;
+   color: string;
+   cols: number;
+   rows: number;
   } 
+  export interface Card{
+    
+  }
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
@@ -15,22 +17,22 @@ export class BeersComponent implements OnInit {
 
   
     tiles: Tile[] = [
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      {cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
+      { cols: 1, rows: 1, color: 'lightgreen'},
     ];
 
   constructor() { }
