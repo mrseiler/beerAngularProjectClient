@@ -29,7 +29,7 @@ export class AuthService {
 
       // console.log("localstorage: ", localStorage)
       this.isLoggedIn.next(true);
-      this.router.navigate(['/mainnav/home']);
+      this.router.navigate(['/mainnav']);
     },
     err => {
       console.log(err);
@@ -50,7 +50,7 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  public setHeader(): HttpHeaders {
+  private setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
   /*public isAuthenticated(): boolean {

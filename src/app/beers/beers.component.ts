@@ -16,7 +16,7 @@ export interface Tile {
 export class BeersComponent implements OnInit {
   beerlist:any
   beerArray:any;
-
+  // beers:any
 
   beer: Beer = {
     beer:{
@@ -32,36 +32,39 @@ export class BeersComponent implements OnInit {
   
     tiles: Tile[] = [
       {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
     ];
 
-  constructor(public service: BeerServiceService) { }
+  constructor(public service: BeerServiceService) {
+    // this.beerArray = this.getBeers()
+    
+   }
 
   ngOnInit() {
     // this.addBeer(this.beer)
     // this.editBeer(this.beer)
     this.getBeers()
+
   }
   getBeers = () => {
     this.service.getBeers().subscribe((beers) => {
-      Object.values(beers).map((beer) => {
-        console.log(beer)
-      })
+    this.beerArray = Object.values(beers)
     })
+    console.log(this.beerArray)
   }
 
   addBeer = (data) =>{
@@ -76,7 +79,7 @@ export class BeersComponent implements OnInit {
   }
 
   editBeer = (data) => {
-    this.service.editBeer(data, 5).subscribe()
+    this.service.editBeer(data, data.id).subscribe()
   }
 
   searchBeer = (query) => {
