@@ -29,7 +29,7 @@ export class AuthService {
 
       // console.log("localstorage: ", localStorage)
       this.isLoggedIn.next(true);
-      this.router.navigate(['/mainnav']);
+      this.router.navigate(['/mainnav/home']);
     },
     err => {
       console.log(err);
