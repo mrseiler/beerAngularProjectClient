@@ -1,42 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { BeerServiceService } from '../../app/services/beer-service.service'
+import { BeerServiceService } from '../services/beer-service.service'
 import { Beer } from '../models/beer'
+import { UserbeerService } from '../../app/services/userbeer.service'
+import { UserBeer } from '../models/userBeer'
+import { DataService } from '../services/data.service'
 
 export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  textTitle: string;
-  beer: Beer[];
-  tiles: Tile[];
- }
-
+    color: string;
+    cols: number;
+    rows: number;
+    textTitle: string;
+  } 
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
   styleUrls: ['./beers.component.css']
 })
 export class BeersComponent implements OnInit {
-
-  /*tiles = [
-    {textTitle:'Beer Title', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-  ];*/
-
+  location:string;
+  rating:number;
+  comment:string;
+  currentUser: any;
+  beerlist:any
+  beerArray:any;
+  userBeerArray:any;
+  searchedUserBeers:any;
+  searchedBeers:any;
+  userbeer:UserBeer;
   beer: Beer = {
     beer:{
       name:"Red Rye",
@@ -48,8 +38,32 @@ export class BeersComponent implements OnInit {
       validatedByBrewer:false
     }
   }
+  
+    tiles: Tile[] = [
+      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    ];
 
-  constructor(public service: BeerServiceService) { }
+  constructor(private service: BeerServiceService,
+              private userbeerservice: UserbeerService,
+            private dataService: DataService) {
+    // this.beerArray = this.getBeers()
+    
+   }
 
   ngOnInit() {
     this.getAllBeers();
@@ -57,7 +71,16 @@ export class BeersComponent implements OnInit {
       
     }
     // this.addBeer(this.beer)
-    //this.editBeer(this.beer)
+    // this.editBeer(this.beer)
+    this.getBeers()
+    // this.currentUser = this.dataService.getUser().subscribe();
+    console.log(this.currentUser)
+  }
+  getBeers = () => {
+    this.service.getBeers().subscribe((beers) => {
+    this.beerArray = Object.values(beers)
+    })
+    // console.log(this.beerArray)
   }
 
   addBeer = (data) =>{
@@ -72,12 +95,12 @@ export class BeersComponent implements OnInit {
   }
 
   editBeer = (data) => {
-    this.service.editBeer(data, 5).subscribe()
+    this.service.editBeer(data, data.id).subscribe()
   }
 
   searchBeer = (query) => {
     this.service.searchBeer(query).subscribe((beers) => {
-      console.log("searched beers: ",beers)
+      this.searchedBeers = Object.values(beers)
     })
   }
 
@@ -89,4 +112,42 @@ export class BeersComponent implements OnInit {
     this.service.getBeers().subscribe();
   }
   
+  userBeerCreate = (data) => {
+    this.userbeerservice.create(data).subscribe()
+  }
+  userBeerGetOne = (name) => {
+    this.userbeerservice.getOne(name).subscribe((beer) => {
+      console.log(beer)
+    })
+  }
+  userBeerGetAll = () => {
+    this.userbeerservice.getAll().subscribe((beers) => {
+      this.userBeerArray = Object.values(beers)
+    })
+  }
+  userBeerSearch = (query) => {
+    this.userbeerservice.search(query).subscribe((beers) => {
+      this.searchedUserBeers = Object.values(beers)
+    })
+  }
+  userBeerEdit = (data) => {
+    this.userbeerservice.edit(data).subscribe()
+  }
+  userBeerDelete = (id) => {
+    this.userbeerservice.delete(id).subscribe()
+  }
+
+  addToMyList = (beer, location, rating, comment) => {
+      this.userbeer = {
+        userbeer:{
+          name:beer.name,
+          locationhad: location,
+          rating: rating,
+          comment: comment
+        }
+    }
+    this.userBeerCreate(this.userbeer)
+  }
+
+  // setUserAsBrewer(isBrewer)
 }

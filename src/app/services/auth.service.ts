@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Token } from '../models/Token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { DataService } from './data.service'
 //import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
@@ -14,7 +15,7 @@ export class AuthService {
   userInfo: Token;
   isLoggedIn = new Subject<boolean>();
 
-  constructor(public http: HttpClient, public router: Router) {}//, public jwtHelper: JwtHelperService) { }
+  constructor(public http: HttpClient, public router: Router, private dataService: DataService) {}//, public jwtHelper: JwtHelperService) { }
 
   register(regUserData) {
     return this.http.post(`http://localhost:3000/api/user/createuser`, regUserData, {headers: this.setHeader()})
@@ -24,7 +25,8 @@ export class AuthService {
   login(loginInfo) {
     return this.http.post(`http://localhost:3000/api/user/login`, loginInfo)
     .subscribe( (token) => {
-      // console.log(token);
+      this.dataService.setUser(token)
+      // console.log(token.);
       var data = Object.values(token);
       localStorage.setItem('token', data[2]);
       localStorage.setItem('firstname', data[0].firstname);
@@ -34,7 +36,7 @@ export class AuthService {
       localStorage.setItem('id', data[0].id);
       console.log(localStorage);
       this.isLoggedIn.next(true);
-      this.router.navigate(['/mainnav/home']);
+      this.router.navigate(['/mainnav']);
     },
     err => {
       console.log(err);
@@ -61,7 +63,7 @@ export class AuthService {
     return this.http.get(`http://localhost:3000/api/user/finduser/${localStorage.id}`);
   }
 
-  public setHeader(): HttpHeaders {
+  private setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
   /*public isAuthenticated(): boolean {

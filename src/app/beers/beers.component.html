@@ -1,15 +1,62 @@
-<mat-grid-list cols="4" rowHeight="15.2em">
-    <mat-grid-tile
-        *ngFor="let tile of tiles"
-        [colspan]="tile.cols"
-        [rowspan]="tile.rows"
-        [style.background]="tile.color"><mat-card>
-          <mat-card-title>
-            {{tile.textTitle}}
-          </mat-card-title>
-      <mat-card-content>
-        {{beers.name}}
-      </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="gridLines">
+    <!-- <div class="accordiondiv"> -->
+        <!-- <mat-accordion> -->
+    
+          <!-- <mat-expansion-panel class="expansion">
+            <mat-expansion-panel-header>
+              Beer
+            </mat-expansion-panel-header>
+            <mat-form-field>
+              <mat-select placeholder="Search by" [(value)]="selected">
+                <mat-option value="option1">Name </mat-option>
+                <mat-option value="option2">Type</mat-option>
+                <mat-option value="option3">Brewery</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Search" type="text">
+            </mat-form-field>
+            <button mat-raised-button>Search</button>
+          </mat-expansion-panel>
+          <mat-expansion-panel class="expansion">
+            <mat-expansion-panel-header>
+              Friends
+            </mat-expansion-panel-header>
+            <mat-form-field>
+              <input matInput placeholder="Search" type="text">
+            </mat-form-field>
+            <button mat-raised-button>Search</button>
+          </mat-expansion-panel>
+          <mat-expansion-panel class="expansion">
+            <mat-expansion-panel-header>
+              Brewery
+            </mat-expansion-panel-header>
+            <mat-form-field>
+              <input matInput placeholder="Search" type="text">
+            </mat-form-field>
+            <button mat-raised-button>Search</button>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div> -->
+    
+     
+           
+             <div class="card-container">
+              <mat-card *ngFor="let beer of beerArray"> 
+                <mat-card-title>
+                  {{beer.name}}
+                </mat-card-title>
+            <mat-card-content>
+              <ul >
+                <li>Brewery: {{beer.brewery}}</li>
+                <li>ABV: {{beer.abv}}</li>
+                <li>Style: {{beer.style}}</li>
+                <button mat-raised-button (click)="addToMyList(beer, 'Indy', 3, 'Worst ever')">Add user beer</button>
+                <!-- <li>{{beer.brewery}}</li>
+                <li>{{beer.brewerlocation}}</li> -->
+              </ul>
+            </mat-card-content>
+            </mat-card>
+            </div>
+         
+        
