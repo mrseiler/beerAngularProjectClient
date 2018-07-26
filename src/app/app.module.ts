@@ -96,7 +96,7 @@ import { DeleteAccountDialogComponent } from './delete-account-dialog/delete-acc
     BeerDialogBoxComponent,
     DeleteAccountDialogComponent
   ],
-  providers: [AuthService, AuthGuard,AccountDialogComponent,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  providers: [AuthService, AuthGuard,AccountDialogComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -18,6 +18,7 @@ export class AccountDialogComponent implements OnInit {
   users: Object[] = [];
 
   constructor(public auth: AuthService, public dialogRef: MatDialogRef<AccountDialogComponent>) { }
+  
 
   ngOnInit() {
   }
@@ -37,5 +38,6 @@ export class AccountDialogComponent implements OnInit {
   close(): void{
     this.dialogRef.close();
   }
+ 
 
 }
