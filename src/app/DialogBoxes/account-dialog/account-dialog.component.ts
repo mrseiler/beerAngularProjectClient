@@ -1,40 +1,62 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { MatDialogRef } from '../../../../node_modules/@angular/material';
+import {Component, Inject} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
+export interface DialogData {
+  firstname: string;
+  lastname: string;
+  email: string;
+  username: string;
+}
 @Component({
   selector: 'app-account-dialog',
   templateUrl: './account-dialog.component.html',
   styleUrls: ['./account-dialog.component.css']
 })
-export class AccountDialogComponent implements OnInit {
+export class AccountDialogComponent{
 
-  firstname: string;
-  lastname: string;
-  username: string;
-  email: string;
-  password: string;
-  confirmpassword: string;
-  users: Object[] = [];
+  firstname: string = localStorage.firstname;
+  lastname: string = localStorage.lastname;
+  email: string = localStorage.email;
+  username: string = localStorage.username;
+  userInfo: DialogData;
 
-  constructor(public auth: AuthService, public dialogRef: MatDialogRef<AccountDialogComponent>) { }
+  constructor(public dialog: MatDialog) { }
 
-  ngOnInit() {
-  }
-  onSubmit() {
-    var editUser = { user: {
-      firstname: this.firstname,
-      lastname: this.lastname,
-      username: this.username,
-      email: this.email,
-      password: this.password
-    }}
-    this.auth.update(localStorage.id, editUser).subscribe(data => {
-      this.users.push(data);
-      location.reload();
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '400px',
+      data: {firstname: this.firstname, lastname: this.lastname, email: this.email, username: this.username}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.userInfo = result;
+      console.log(this.userInfo);
+      console.log('The dialog was closed');
     });
   }
-  close(): void{
+}
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'account-dialog-overview.html',
+})
+export class DialogOverviewExampleDialog {
+
+  firstname: string;
+
+  constructor(public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  onSubmit(): void {
+    var updateUser = { user: {
+      firstname: this.firstname
+    }}
+    localStorage.firstname = this.firstname;
+    console.log(this.data.firstname);
+    console.log(updateUser);
     this.dialogRef.close();
   }
 

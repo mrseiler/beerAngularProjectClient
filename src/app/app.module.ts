@@ -33,10 +33,10 @@ import { BeersComponent } from './beers/beers.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DeleteAccountDialogComponent } from './DialogBoxes/delete-account-dialog/delete-account-dialog.component';
-import { AccountDialogComponent } from './dialogs/account-dialog/account-dialog.component';
 import { BeerDialogBoxComponent } from './DialogBoxes/beer-dialog-box/beer-dialog-box.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddArrayPipe } from './add-array.pipe';
+import { AccountDialogComponent } from './DialogBoxes/account-dialog/account-dialog.component';
 
 @NgModule({
   declarations: [
