@@ -9,20 +9,18 @@ import { MatDialogRef } from '../../../../node_modules/@angular/material';
 })
 export class BeerDialogBoxComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<BeerDialogBoxComponent>,
-              private service:BeerServiceService) { }
-
+  constructor(private service:BeerServiceService,
+              public dialogRef: MatDialogRef<BeerDialogBoxComponent>
+              ) { }
   beername:string;
   brewery:string;
   breweryLocation:string;
   style:string;
   abv:number;
-beer:any;
-  
+  beer:any;
 
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
   onSubmit():void{
     this.beer={
       beer:{
@@ -36,7 +34,7 @@ beer:any;
     this.addBeer(this.beer);
     this.close();
   }
-
+  
   close():void{
     this.dialogRef.close()
   }

@@ -98,7 +98,7 @@ import { AddArrayPipe } from './add-array.pipe';
     BeerDialogBoxComponent,
     DeleteAccountDialogComponent
   ],
-  providers: [AuthService, AuthGuard,AccountDialogComponent,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  providers: [AuthService, AuthGuard,AccountDialogComponent
   ],
   bootstrap: [AppComponent]
 })
