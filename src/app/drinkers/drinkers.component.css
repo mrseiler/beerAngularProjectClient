@@ -1,0 +1,10 @@
+.update {
+    background-color: yellow;
+    margin-right: 5px;
+}
+.delete {
+    background-color: red;
+}
+.wrapper {
+    margin-left: 10px;
+}

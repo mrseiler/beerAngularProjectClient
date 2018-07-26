@@ -91,6 +91,10 @@ export class BeersComponent implements OnInit {
   deleteBeer = (id) => {
     this.service.deleteBeer(id).subscribe()
   }
+
+  getAllBeers = () => {
+    this.service.getBeers().subscribe();
+  }
   
   userBeerCreate = (data) => {
     this.userbeerservice.create(data).subscribe()
