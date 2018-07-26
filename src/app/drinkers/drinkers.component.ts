@@ -3,7 +3,7 @@ import { MatDialog } from '../../../node_modules/@angular/material';
 import { AuthService } from '../services/auth.service';
 import { Router } from '../../../node_modules/@angular/router';
 import { DeleteAccountDialogComponent } from '../DialogBoxes/delete-account-dialog/delete-account-dialog.component';
-import { AccountDialogComponent } from '../dialogs/account-dialog/account-dialog.component';
+import { AccountDialogComponent } from '../DialogBoxes/account-dialog/account-dialog.component';
 
 @Component({
   selector: 'app-drinkers',
@@ -16,6 +16,7 @@ export class DrinkersComponent implements OnInit {
   lastname: string;
   username: string;
   email: string;
+  password: string;
   users: Object[] = [];
 
   constructor(public dialog: MatDialog, public auth:AuthService, public router: Router) { }
@@ -47,6 +48,7 @@ export class DrinkersComponent implements OnInit {
       this.lastname = userInfo[5];
       this.username = userInfo[3];
       this.email = userInfo[1];
+      this.password = userInfo[6];
     })
   }
 
