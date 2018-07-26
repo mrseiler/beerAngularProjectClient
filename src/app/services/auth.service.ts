@@ -17,7 +17,8 @@ export class AuthService {
   constructor(public http: HttpClient, public router: Router, private dataService: DataService) {}
 
   register(regUserData) {
-    return this.http.post(`http://localhost:3000/api/user/createuser`, regUserData, {headers: this.setHeader()});
+    return this.http.post(`http://localhost:3000/api/user/createuser`, regUserData, {headers: this.setHeader()})
+    
   }
 
   login(loginInfo) {
@@ -37,6 +38,9 @@ export class AuthService {
       alert("Invalid Username/Password combination");
     }
   )
+  }
+  updateUser(user) {
+    return this.http.put(`http://localhost:3000/api/user/update/${localStorage.id}`, user)
   }
   
   currentUser(): Observable<Object> {
