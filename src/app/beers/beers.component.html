@@ -1,3 +1,4 @@
+
 <mat-card class="filter">
   <button mat-raised-button [matMenuTriggerFor]="beer">Filter By:</button>
 
@@ -33,6 +34,7 @@
         <li>Brewery: {{beer.brewery}}</li>
         <li>ABV: {{beer.abv}}</li>
         <li>Style: {{beer.style}}</li>
+        <li>Rating: {{beer.rating | addArray }}</li>
         <button mat-raised-button (click)="addToMyList(beer, 'Indy', 3, 'Worst ever')">Add user beer</button>
         <!-- <li>{{beer.brewery}}</li>
                 <li>{{beer.brewerlocation}}</li> -->

@@ -37,6 +37,7 @@ import { DeleteAccountDialogComponent } from './DialogBoxes/delete-account-dialo
 import { AccountDialogComponent } from './dialogs/account-dialog/account-dialog.component';
 import { BeerDialogBoxComponent } from './DialogBoxes/beer-dialog-box/beer-dialog-box.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddArrayPipe } from './add-array.pipe';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BeersComponent,
     MainNavComponent,
     DashboardComponent,
+    AddArrayPipe,
     BeerDialogBoxComponent,
     AccountDialogComponent,
     DeleteAccountDialogComponent,

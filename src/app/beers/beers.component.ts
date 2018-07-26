@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerServiceService } from '../services/beer-service.service'
 import { Beer } from '../models/beer'
-import { UserbeerService } from '../../app/services/userbeer.service'
+import { UserbeerService } from '../services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
 import { MatDialog } from '../../../node_modules/@angular/material';
 import { BeerDialogBoxComponent } from '../DialogBoxes/beer-dialog-box/beer-dialog-box.component';
+// import { AddArrayPipe } from '../../app/add-array.pipe'
+
 
 @Component({
   selector: 'app-beers',
@@ -13,52 +15,59 @@ import { BeerDialogBoxComponent } from '../DialogBoxes/beer-dialog-box/beer-dial
   styleUrls: ['./beers.component.css']
 })
 export class BeersComponent implements OnInit {
-  beerlist:any;
-  beerArray:any;
-  beers: any
-
-  location:string;
+  user:any;
+  locationhad:string;
   rating:number;
   comment:string;
   currentUser: any;
+  beerlist:any
+  beerArray:any;
   userBeerArray:any;
   searchedUserBeers:any;
   searchedBeers:any;
   userbeer:UserBeer;
+  display:Boolean = true;
   beer: Beer = {
     beer:{
-      name:"Red Rye",
+      name:"Tom's Beer",
       brewery:"Founder's",
       breweryLocation:"Grand Rapids, MI",
       style:"IPA",
       abv:4,
-      rating:[3],
+      rating:[3, 4, 5, 6, 2],
       validatedByBrewer:false
     }
   }
+
+  // addButtonDisplay(beer){
+  //   if()
+  // }
   
+    
   constructor(private service: BeerServiceService,
               private userbeerservice: UserbeerService,
-            private dataService: DataService,
-          public dialog: MatDialog) {
+              private dataService: DataService,
+              public dialog: MatDialog
+              ) {
     // this.beerArray = this.getBeers()
     
    }
-   openDialog(): void {
-    const dialogRef = this.dialog.open(BeerDialogBoxComponent, {
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  } 
 
   ngOnInit() {
-    this.addBeer(this.beer)
+    // this.addBeer(this.beer)
     // this.editBeer(this.beer)
     this.getBeers()
     // this.currentUser = this.dataService.getUser().subscribe();
-    console.log(this.currentUser)
+    // console.log(this.currentUser)
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(BeerDialogBoxComponent, {
+    });
+ 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
   getBeers = () => {
     this.service.getBeers().subscribe((beers) => {
@@ -134,4 +143,10 @@ export class BeersComponent implements OnInit {
   }
 
   // setUserAsBrewer(isBrewer)
+
+  getUser(){
+    this.user = function (){
+
+    }
+  }
 }
