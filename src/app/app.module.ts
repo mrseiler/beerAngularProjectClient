@@ -85,7 +85,7 @@ import { AccountDialogComponent } from './account-dialog/account-dialog.componen
     MatMenuModule,
     MatPaginatorModule,
     MatTreeModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   entryComponents:[
     AccountDialogComponent,
