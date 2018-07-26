@@ -22,8 +22,9 @@
   </mat-menu>
   
     <button mat-raised-button (click)="openDialog()">Pick one</button>
-
+    <button mat-raised-button routerLink="/mainnav/beers/yourbeers"> Your Beers</button>
 </mat-card>
+    <router-outlet></router-outlet>
 <div class="card-container">
   <mat-card *ngFor="let beer of beerArray">
     <mat-card-title>

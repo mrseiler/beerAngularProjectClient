@@ -12,7 +12,7 @@ import { BeerDialogBoxComponent } from '../DialogBoxes/beer-dialog-box/beer-dial
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
-  styleUrls: ['./beers.component.css']
+  styleUrls: ['./beers.component.css'] 
 })
 export class BeersComponent implements OnInit {
   user: any;

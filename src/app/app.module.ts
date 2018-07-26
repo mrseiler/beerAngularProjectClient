@@ -20,7 +20,7 @@ import {
   MatCardModule, 
   MatExpansionModule,
   MatSelectModule,
-  MatGridListModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule, MatDialogModule
+  MatGridListModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule, MatDialogModule, MatTabsModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -37,6 +37,7 @@ import { BeerDialogBoxComponent } from './DialogBoxes/beer-dialog-box/beer-dialo
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddArrayPipe } from './add-array.pipe';
 import { AccountDialogComponent } from './DialogBoxes/account-dialog/account-dialog.component';
+import { YourBeersComponent } from './beers/your-beers/your-beers.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { AccountDialogComponent } from './DialogBoxes/account-dialog/account-dia
     BeerDialogBoxComponent,
     AccountDialogComponent,
     DeleteAccountDialogComponent,
+    YourBeersComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,6 +93,7 @@ import { AccountDialogComponent } from './DialogBoxes/account-dialog/account-dia
     MatPaginatorModule,
     MatTreeModule,
     MatDialogModule,
+    MatTabsModule
   ],
   entryComponents:[
     AccountDialogComponent,

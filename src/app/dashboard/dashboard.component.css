@@ -1,22 +1,28 @@
 .gridArea{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
-    grid-template-rows:  1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1em;
     margin: 1em;
     grid-template-areas: 
     "welcome welcome welcome welcome"
     "brewery brewery brewery brewery"
-    "beerOne beerOne beerTwo beerTwo "
+    "brewery brewery brewery brewery"
+    "brewery brewery brewery brewery"
+    " beerOne beerOne beerTwo beerTwo"
+    " beerOne beerOne beerTwo beerTwo"
+    " beerOne beerOne beerTwo beerTwo"
+    " beerOne beerOne beerTwo beerTwo"
     " beerOne beerOne beerTwo beerTwo";
 
 }
 .welcome{
     grid-area: welcome;
+    text-align: center;
 }
 .breweryOTM{
     grid-area: brewery;
-
+    background: url()
 }
 .featuredBeerOne{
     grid-area: beerOne;
