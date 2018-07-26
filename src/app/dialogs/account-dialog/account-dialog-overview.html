@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Hi {{data.firstname}}</h1>
+<hr />
+<div mat-dialog-content>
+    <p>You can change your account information below</p>
+    <hr />
+    <div>
+            <mat-form-field>
+              <input matInput type="text" [(ngModel)]="firstname" name="firstname" placeholder="{{data.firstname}}">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input matInput type="text" [(ngModel)]="lastname" name="lastname" placeholder="{{data.lastname}}">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input matInput type="text" [(ngModel)]="email" name="email" placeholder="{{data.email}}">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input matInput text="text" [(ngModel)]="username" name="username" placeholder="{{data.username}}">
+            </mat-form-field>
+          </div>
+</div>
+<div md-dialog-actions>
+    <button mat-raised-button (click)="onSubmit()"tabindex="2" href="/mainnav/account">Submit</button>
+    <button mat-raised-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+</div>

@@ -22,6 +22,7 @@ import {
   MatSelectModule,
   MatGridListModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule, MatDialogModule
 } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog'
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AuthGuard } from './guards/auth.guard';
@@ -36,6 +37,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddArrayPipe } from './add-array.pipe';
 import { BeerDialogBoxComponent } from './beer-dialog-box/beer-dialog-box.component';
 import { AccountDialogComponent } from './account-dialog/account-dialog.component';
+import { DeleteAccountDialogComponent } from './delete-account-dialog/delete-account-dialog.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { AccountDialogComponent } from './account-dialog/account-dialog.componen
     AddArrayPipe,
     BeerDialogBoxComponent,
     AccountDialogComponent,
+    DeleteAccountDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,15 +88,18 @@ import { AccountDialogComponent } from './account-dialog/account-dialog.componen
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    MatDialogModule,
     MatPaginatorModule,
     MatTreeModule,
     MatDialogModule,
   ],
   entryComponents:[
     AccountDialogComponent,
-    BeerDialogBoxComponent
+    BeerDialogBoxComponent,
+    DeleteAccountDialogComponent
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard,AccountDialogComponent,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
