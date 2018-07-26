@@ -33,6 +33,7 @@ import { BeersComponent } from './beers/beers.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddArrayPipe } from './add-array.pipe';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BeersComponent,
     MainNavComponent,
     DashboardComponent,
+    AddArrayPipe,
   ],
   imports: [
     BrowserModule,

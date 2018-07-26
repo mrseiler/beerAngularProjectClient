@@ -4,20 +4,16 @@ import { Beer } from '../models/beer'
 import { UserbeerService } from '../../app/services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
+// import { AddArrayPipe } from '../../app/add-array.pipe'
 
-export interface Tile {
-    color: string;
-    cols: number;
-    rows: number;
-    textTitle: string;
-  } 
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
   styleUrls: ['./beers.component.css']
 })
 export class BeersComponent implements OnInit {
-  location:string;
+   
+  locationhad:string;
   rating:number;
   comment:string;
   currentUser: any;
@@ -29,38 +25,21 @@ export class BeersComponent implements OnInit {
   userbeer:UserBeer;
   beer: Beer = {
     beer:{
-      name:"Red Rye",
+      name:"Honey Wheat",
       brewery:"Founder's",
       breweryLocation:"Grand Rapids, MI",
       style:"IPA",
       abv:4,
-      rating:[3],
+      rating:[3, 4, 5, 6, 2],
       validatedByBrewer:false
     }
   }
   
-    tiles: Tile[] = [
-      {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-      // {textTitle: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    ];
-
+    
   constructor(private service: BeerServiceService,
               private userbeerservice: UserbeerService,
-            private dataService: DataService) {
+              private dataService: DataService,
+              ) {
     // this.beerArray = this.getBeers()
     
    }
