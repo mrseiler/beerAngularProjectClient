@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { AccountDialogComponent } from '../account-dialog/account-dialog.component';
 import { MatDialog } from '../../../node_modules/@angular/material';
 import { AuthService } from '../services/auth.service';
 import { Router } from '../../../node_modules/@angular/router';
 import { DeleteAccountDialogComponent } from '../delete-account-dialog/delete-account-dialog.component';
-=======
-import { AccountDialogComponent } from '../dialogs/account-dialog/account-dialog.component';
-import { AuthService } from '../services/auth.service';
->>>>>>> 9ae4fb9789932ca1e38f643950b7653b31ccfb3d
 
 @Component({
   selector: 'app-drinkers',
@@ -19,16 +14,9 @@ export class DrinkersComponent implements OnInit {
 
   firstname: string;
   lastname: string;
-<<<<<<< HEAD
   username: string;
   email: string;
   users: Object[] = [];
-=======
-  email: string;
-  username: string;
-
-  constructor(public account: AccountDialogComponent, public auth: AuthService) { }
->>>>>>> 9ae4fb9789932ca1e38f643950b7653b31ccfb3d
 
   constructor(public dialog: MatDialog, public auth:AuthService, public router: Router) { }
 
