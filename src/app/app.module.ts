@@ -34,6 +34,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BeerDialogBoxComponent } from './beer-dialog-box/beer-dialog-box.component';
+import { AccountDialogComponent } from './account-dialog/account-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { BeerDialogBoxComponent } from './beer-dialog-box/beer-dialog-box.compon
     MainNavComponent,
     DashboardComponent,
     BeerDialogBoxComponent,
+    AccountDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +88,7 @@ import { BeerDialogBoxComponent } from './beer-dialog-box/beer-dialog-box.compon
     MatDialogModule
   ],
   entryComponents:[
+    AccountDialogComponent,
     BeerDialogBoxComponent
   ],
   providers: [AuthService, AuthGuard],
