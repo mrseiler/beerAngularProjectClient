@@ -16,7 +16,6 @@ export class DrinkersComponent implements OnInit {
   lastname: string;
   username: string;
   email: string;
-  password: string;
   users: Object[] = [];
 
   constructor(public dialog: MatDialog, public auth:AuthService, public router: Router) { }
@@ -48,7 +47,6 @@ export class DrinkersComponent implements OnInit {
       this.lastname = userInfo[5];
       this.username = userInfo[3];
       this.email = userInfo[1];
-      this.password = userInfo[6];
     })
   }
 

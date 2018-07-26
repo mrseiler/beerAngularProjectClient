@@ -20,6 +20,7 @@ export class AccountDialogComponent implements OnInit {
   
 
   ngOnInit() {
+    this.getUserInfo();
   }
   onSubmit() {
     var editUser = { user: {
@@ -36,6 +37,15 @@ export class AccountDialogComponent implements OnInit {
   }
   close(): void{
     this.dialogRef.close();
+  }
+  getUserInfo() {
+    this.auth.getUser(localStorage.id).subscribe(data => {
+      var userInfo = Object.values(data);
+      this.firstname = userInfo[4];
+      this.lastname = userInfo[5];
+      this.username = userInfo[3];
+      this.email = userInfo[1];
+    })
   }
  
 
