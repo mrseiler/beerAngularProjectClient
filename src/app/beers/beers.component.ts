@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerServiceService } from '../services/beer-service.service'
 import { Beer } from '../models/beer'
-import { UserbeerService } from '../../app/services/userbeer.service'
+import { UserbeerService } from '../services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
 // import { AddArrayPipe } from '../../app/add-array.pipe'
@@ -12,7 +12,7 @@ import { DataService } from '../services/data.service'
   styleUrls: ['./beers.component.css']
 })
 export class BeersComponent implements OnInit {
-   
+  user:any;
   locationhad:string;
   rating:number;
   comment:string;
@@ -23,9 +23,10 @@ export class BeersComponent implements OnInit {
   searchedUserBeers:any;
   searchedBeers:any;
   userbeer:UserBeer;
+  display:Boolean = true;
   beer: Beer = {
     beer:{
-      name:"Honey Wheat",
+      name:"Tom's Beer",
       brewery:"Founder's",
       breweryLocation:"Grand Rapids, MI",
       style:"IPA",
@@ -34,6 +35,10 @@ export class BeersComponent implements OnInit {
       validatedByBrewer:false
     }
   }
+
+  // addButtonDisplay(beer){
+  //   if()
+  // }
   
     
   constructor(private service: BeerServiceService,
@@ -45,7 +50,7 @@ export class BeersComponent implements OnInit {
    }
 
   ngOnInit() {
-    // this.addBeer(this.beer)
+    this.addBeer(this.beer)
     // this.editBeer(this.beer)
     this.getBeers()
     // this.currentUser = this.dataService.getUser().subscribe();
@@ -121,4 +126,10 @@ export class BeersComponent implements OnInit {
   }
 
   // setUserAsBrewer(isBrewer)
+
+  getUser(){
+    this.user = function (){
+
+    }
+  }
 }

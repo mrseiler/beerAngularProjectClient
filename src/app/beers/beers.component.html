@@ -52,7 +52,9 @@
                   <li>ABV: {{beer.abv}}</li>
                   <li>Style: {{beer.style}}</li>
                   <li>Rating: {{beer.rating | addArray }}</li>
-                  <button mat-raised-button (click)="addToMyList(beer, location, rating, comment)">Add user beer</button>
+                 
+
+                  <button mat-raised-button *ngIf="display" (click)="addToMyList(beer, location, rating, comment)">+Beer</button>
 
                 <!-- <li>{{beer.brewery}}</li>
                 <li>{{beer.brewerlocation}}</li> -->
