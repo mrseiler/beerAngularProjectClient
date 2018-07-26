@@ -17,6 +17,11 @@ export class AddArrayPipe implements PipeTransform {
       avg = (+x / +y)
       return avg;
     }
+
+    if (value){
     return getAvg(value);
+    } else{
+      return 1
+    }
   }
 }

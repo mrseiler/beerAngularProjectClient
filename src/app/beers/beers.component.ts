@@ -4,7 +4,10 @@ import { Beer } from '../models/beer'
 import { UserbeerService } from '../services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
+import { BeerDialogBoxComponent } from '../beer-dialog-box/beer-dialog-box.component';
+import { MatDialog } from '../../../node_modules/@angular/material';
 // import { AddArrayPipe } from '../../app/add-array.pipe'
+
 
 @Component({
   selector: 'app-beers',
@@ -44,17 +47,27 @@ export class BeersComponent implements OnInit {
   constructor(private service: BeerServiceService,
               private userbeerservice: UserbeerService,
               private dataService: DataService,
+              public dialog: MatDialog
               ) {
     // this.beerArray = this.getBeers()
     
    }
 
   ngOnInit() {
-    this.addBeer(this.beer)
+    // this.addBeer(this.beer)
     // this.editBeer(this.beer)
     this.getBeers()
     // this.currentUser = this.dataService.getUser().subscribe();
-    console.log(this.currentUser)
+    // console.log(this.currentUser)
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(BeerDialogBoxComponent, {
+    });
+ 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
   getBeers = () => {
     this.service.getBeers().subscribe((beers) => {

@@ -1,64 +1,4 @@
-<<<<<<< HEAD
-<div class="gridLines">
-    <!-- <div class="accordiondiv"> -->
-        <!-- <mat-accordion> -->
-    
-          <!-- <mat-expansion-panel class="expansion">
-            <mat-expansion-panel-header>
-              Beer
-            </mat-expansion-panel-header>
-            <mat-form-field>
-              <mat-select placeholder="Search by" [(value)]="selected">
-                <mat-option value="option1">Name </mat-option>
-                <mat-option value="option2">Type</mat-option>
-                <mat-option value="option3">Brewery</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Search" type="text">
-            </mat-form-field>
-            <button mat-raised-button>Search</button>
-          </mat-expansion-panel>
-          <mat-expansion-panel class="expansion">
-            <mat-expansion-panel-header>
-              Friends
-            </mat-expansion-panel-header>
-            <mat-form-field>
-              <input matInput placeholder="Search" type="text">
-            </mat-form-field>
-            <button mat-raised-button>Search</button>
-          </mat-expansion-panel>
-          <mat-expansion-panel class="expansion">
-            <mat-expansion-panel-header>
-              Brewery
-            </mat-expansion-panel-header>
-            <mat-form-field>
-              <input matInput placeholder="Search" type="text">
-            </mat-form-field>
-            <button mat-raised-button>Search</button>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </div> -->
-    
-     
-           
-             <div class="card-container">
-              <mat-card *ngFor="let beer of beerArray" class="card-info"> 
-                <mat-card-title>
-                  {{beer.name}}
-                  </mat-card-title>
-                <mat-card-content>
-                  <ul >
-                  <li>Brewery: {{beer.brewery}}</li>
-                  <li>ABV: {{beer.abv}}</li>
-                  <li>Style: {{beer.style}}</li>
-                  <li>Rating: {{beer.rating | addArray }}</li>
-                 
 
-                  <button mat-raised-button *ngIf="display" (click)="addToMyList(beer, location, rating, comment)">+Beer</button>
-
-                <!-- <li>{{beer.brewery}}</li>
-=======
 <mat-card class="filter">
   <button mat-raised-button [matMenuTriggerFor]="beer">Filter By:</button>
 
@@ -94,9 +34,9 @@
         <li>Brewery: {{beer.brewery}}</li>
         <li>ABV: {{beer.abv}}</li>
         <li>Style: {{beer.style}}</li>
+        <li>Rating: {{beer.rating | addArray }}</li>
         <button mat-raised-button (click)="addToMyList(beer, 'Indy', 3, 'Worst ever')">Add user beer</button>
         <!-- <li>{{beer.brewery}}</li>
->>>>>>> ac0b77bb601ddd2617e962e887d2eb7ed1f2edfe
                 <li>{{beer.brewerlocation}}</li> -->
       </ul>
     </mat-card-content>
