@@ -5,6 +5,8 @@ import { UserbeerService } from '../services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
 // import { AddArrayPipe } from '../../app/add-array.pipe'
+import { MatDialog } from '../../../node_modules/@angular/material';
+import { BeerDialogBoxComponent } from '../beer-dialog-box/beer-dialog-box.component';
 
 @Component({
   selector: 'app-beers',
@@ -12,13 +14,15 @@ import { DataService } from '../services/data.service'
   styleUrls: ['./beers.component.css']
 })
 export class BeersComponent implements OnInit {
-  user:any;
+  
   locationhad:string;
+  beerlist:any;
+  beerArray:any;
+  beers: any
+
+  location:string;
   rating:number;
   comment:string;
-  currentUser: any;
-  beerlist:any
-  beerArray:any;
   userBeerArray:any;
   searchedUserBeers:any;
   searchedBeers:any;
@@ -35,26 +39,30 @@ export class BeersComponent implements OnInit {
       validatedByBrewer:false
     }
   }
-
-  // addButtonDisplay(beer){
-  //   if()
-  // }
   
-    
   constructor(private service: BeerServiceService,
               private userbeerservice: UserbeerService,
               private dataService: DataService,
-              ) {
-    // this.beerArray = this.getBeers()
+              public dialog: MatDialog,
+              public currentUser:any) {
+    this.beerArray = this.getBeers()
     
    }
+   openDialog(): void {
+    const dialogRef = this.dialog.open(BeerDialogBoxComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  } 
 
   ngOnInit() {
-    this.addBeer(this.beer)
+    // this.addBeer(this.beer)
     // this.editBeer(this.beer)
-    this.getBeers()
+    // this.getBeers()
     // this.currentUser = this.dataService.getUser().subscribe();
-    console.log(this.currentUser)
+    // console.log(this.currentUser)
   }
   getBeers = () => {
     this.service.getBeers().subscribe((beers) => {
@@ -127,9 +135,9 @@ export class BeersComponent implements OnInit {
 
   // setUserAsBrewer(isBrewer)
 
-  getUser(){
-    this.user = function (){
+  // getUser(){
+  //   this.user = function (){
 
-    }
-  }
+  //   }
+  // }
 }
