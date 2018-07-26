@@ -1,5 +1,4 @@
 import { Component, OnInit, createPlatformFactory } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -9,7 +8,6 @@ import { AuthService } from '../../services/auth.service';
 })
 export class DrinkersSignupComponent implements OnInit {
  
-  public registerForm: FormGroup;
 
   firstname: string;
   lastname: string;
@@ -18,7 +16,7 @@ export class DrinkersSignupComponent implements OnInit {
   password: string;
   users: Object[] = [];
 
-  constructor(public form: FormBuilder, public auth: AuthService) {
+  constructor(public auth: AuthService) {
    }
 
   ngOnInit() {
