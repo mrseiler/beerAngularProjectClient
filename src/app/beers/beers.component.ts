@@ -5,7 +5,7 @@ import { UserbeerService } from '../../app/services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
 import { MatDialog } from '../../../node_modules/@angular/material';
-import { BeerDialogBoxComponent } from '../beer-dialog-box/beer-dialog-box.component';
+import { BeerDialogBoxComponent } from '../DialogBoxes/beer-dialog-box/beer-dialog-box.component';
 
 @Component({
   selector: 'app-beers',
