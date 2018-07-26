@@ -20,7 +20,7 @@ import {
   MatCardModule, 
   MatExpansionModule,
   MatSelectModule,
-  MatGridListModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule
+  MatGridListModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule, MatDialogModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -33,6 +33,7 @@ import { BeersComponent } from './beers/beers.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BeerDialogBoxComponent } from './beer-dialog-box/beer-dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BeersComponent,
     MainNavComponent,
     DashboardComponent,
+    BeerDialogBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatListModule,
     MatMenuModule,
     MatPaginatorModule,
-    MatTreeModule
+    MatTreeModule,
+    MatDialogModule
+  ],
+  entryComponents:[
+    BeerDialogBoxComponent
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
