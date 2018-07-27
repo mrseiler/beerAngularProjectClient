@@ -1,29 +1,29 @@
-<div class="toolbarColor">
-  <mat-card class="filter">
-    <button mat-raised-button [matMenuTriggerFor]="beer">Filter By:</button>
-    <mat-menu #beer="matMenu">
-      <button mat-menu-item [matMenuTriggerFor]="Type">Type</button>
-      <button mat-menu-item [matMenuTriggerFor]="Rating">Rating</button>
-    </mat-menu>
-    <mat-menu #Type="matMenu">
-      <button mat-menu-item>'Type'</button>
-      <button mat-menu-item>'Type'</button>
-      <button mat-menu-item>'Type'</button>
-    </mat-menu>
-    <mat-menu #Rating="matMenu">
-      <button mat-menu-item>'Rating'</button>
-      <button mat-menu-item>'Rating'</button>
-      <button mat-menu-item>'Rating'</button>
-      <button mat-menu-item>'Rating'</button>
-      <button mat-menu-item>'Rating'</button>
-    </mat-menu>
-
-    <div class="spacing"></div>
-    <button mat-raised-button (click)="openDialog()">+Beer</button>
-  </mat-card>
+<mat-card class="filter">
+  <div class="topinfo">
+  <span class="topsearch">
+    <h3>Search our beer database</h3>
+    <mat-form-field>
+    <mat-select placeholder="Search by" ngModel (ngModelChange)="setWhere($event)">
+      <mat-option value="name">Beer Name</mat-option>
+      <mat-option value="style">Style</mat-option>
+      <mat-option value="brewery">Brewery</mat-option>
+    </mat-select>
+  </mat-form-field>
+    <mat-form-field>
+      <input matInput class="searchinput"placeholder="Enter search here" #searchTerm>
+    </mat-form-field>
+  <button mat-button class="searchbutton" (click)="executeSearch(searchValue, searchTerm.value)">Search</button>
+</span>
+  <div>
+    <button mat-raised-button class="addbeer" (click)="openDialog()">+Beer</button>
+    <button mat-raised-button class="mybeers" (click)="buttonsPressed(userBeerArray)">My Beers</button>
+    <button mat-raised-button class="allbeers" (click)="buttonsPressed(beerArray)">All Beers</button>
+  </div>
 </div>
+
+</mat-card>
 <div class="card-container">
-  <mat-card class="beerCards-Color" *ngFor="let beer of beerArray">
+  <mat-card class="beerCards-Color" *ngFor="let beer of whatToDisplay">
     <mat-card-title>
       {{beer.name}}
     </mat-card-title>

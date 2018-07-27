@@ -16,7 +16,7 @@ export class DataService {
   }
 
   setUser = (data) => {
-    console.log(data.user.id)
+    
     // localStorage.setItem('uid', data.user.id)
   }
 }
