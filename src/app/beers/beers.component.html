@@ -37,6 +37,7 @@
         <li>Rating: {{beer.rating | addArray }}</li>
         <div>
           <button mat-raised-button *ngIf="addButtonDisplay(beer.name)"(click)="setBeertoLocal(beer.name)" (click)="userBeerOpenDialog(beer.name)">Add user beer</button>
+          <button mat-raised-button *ngIf="!addButtonDisplay(beer.name)"(click)="userBeerDelete(beer.name)">Delete user beer</button>
         </div>
         
       </ul>

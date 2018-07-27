@@ -28,11 +28,14 @@ export class UserbeerdialogComponent implements OnInit {
   onSubmit():void{
     this.userbeer={
       userbeer:{
-        name:this.name,
+        name:this.data.name,
         locationhad:this.locationhad,
+        rating:this.rating
       }
     }
     this.addUserBeer(this.userbeer);
+    
+    // location.reload();
     this.close();
   }
 
@@ -40,10 +43,21 @@ export class UserbeerdialogComponent implements OnInit {
     this.dialogRef.close()
   }
   addUserBeer = (data) =>{
-    this.userBeerService.create(data).subscribe()
+    this.userBeerService.create(data).subscribe((res)=>{
+      this.editRating(this.data.name, this.rating)
+    },
+    err => {console.log(err)})
   }
-  editBeer = (beer, id) => {
-    this.service.editBeer(beer, id).subscribe()
+  editRating = (name, rate) => {
+    let 
+      beer={
+        rating:rate
+      }
+    
+    this.service.editRating(name, beer).subscribe((res) => {
+      console.log("edit res: ",res)
+    },
+    err => {console.log(err)})
   }
 }
 
