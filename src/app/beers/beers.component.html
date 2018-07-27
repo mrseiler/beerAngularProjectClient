@@ -1,31 +1,29 @@
+<div class="toolbarColor">
+  <mat-card class="filter">
+    <button mat-raised-button [matMenuTriggerFor]="beer">Filter By:</button>
+    <mat-menu #beer="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="Type">Type</button>
+      <button mat-menu-item [matMenuTriggerFor]="Rating">Rating</button>
+    </mat-menu>
+    <mat-menu #Type="matMenu">
+      <button mat-menu-item>'Type'</button>
+      <button mat-menu-item>'Type'</button>
+      <button mat-menu-item>'Type'</button>
+    </mat-menu>
+    <mat-menu #Rating="matMenu">
+      <button mat-menu-item>'Rating'</button>
+      <button mat-menu-item>'Rating'</button>
+      <button mat-menu-item>'Rating'</button>
+      <button mat-menu-item>'Rating'</button>
+      <button mat-menu-item>'Rating'</button>
+    </mat-menu>
 
-<mat-card class="filter">
-  <button mat-raised-button [matMenuTriggerFor]="beer">Filter By:</button>
-
-  <mat-menu #beer="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="Type">Type</button>
-    <button mat-menu-item [matMenuTriggerFor]="Rating">Rating</button>
-  </mat-menu>
-
-  <mat-menu #Type="matMenu">
-    <button mat-menu-item>'Type'</button>
-    <button mat-menu-item>'Type'</button>
-    <button mat-menu-item>'Type'</button>
-  </mat-menu>
-
-  <mat-menu #Rating="matMenu">
-    <button mat-menu-item>'Rating'</button>
-    <button mat-menu-item>'Rating'</button>
-    <button mat-menu-item>'Rating'</button>
-    <button mat-menu-item>'Rating'</button>
-    <button mat-menu-item>'Rating'</button>
-  </mat-menu>
-  
+    <div class="spacing"></div>
     <button mat-raised-button (click)="openDialog()">Pick one</button>
-
-</mat-card>
+  </mat-card>
+</div>
 <div class="card-container">
-  <mat-card *ngFor="let beer of beerArray">
+  <mat-card class="beerCards-Color" *ngFor="let beer of beerArray">
     <mat-card-title>
       {{beer.name}}
     </mat-card-title>
@@ -36,9 +34,9 @@
         <li>Style: {{beer.style}}</li>
         <li>Rating: {{beer.rating | addArray }}</li>
         <div>
-          <button mat-raised-button *ngIf="addButtonDisplay(beer.name)"(click)="setBeertoLocal(beer.name)" (click)="userBeerOpenDialog(beer.name)">Add user beer</button>
+          <button mat-raised-button *ngIf="addButtonDisplay(beer.name)" (click)="setBeertoLocal(beer.name)" (click)="userBeerOpenDialog(beer.name)">Add user beer</button>
         </div>
-        
+
       </ul>
     </mat-card-content>
   </mat-card>
