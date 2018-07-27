@@ -29,3 +29,28 @@
     grid-gap: 1em;
     }
 }
+.addbeer {
+    margin-top: 5px;
+}
+.topsearch {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, lightgreen , yellow);
+}
+.topsearch h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+.topsearch .searchbutton {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.topinfo {
+    display: inline-block;
+}
+.buttons {
+    display: block;
+}

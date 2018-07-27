@@ -52,7 +52,7 @@ export class AuthService {
       console.log(err);
       this.flashMessage.show(err.error.error, { 
         timeout: 2000,
-        cssClass: 'flash',
+        style: "red",
         styleURLs: ['./auth/drinkers-login/drinkers-login.component.css']
       });
     }

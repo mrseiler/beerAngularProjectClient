@@ -25,6 +25,7 @@
 
 .wrapper {
     height: 92vh;
+    width: 100vw;
 }
 .fname {
     display: inline-block;

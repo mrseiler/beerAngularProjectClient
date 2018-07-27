@@ -1,13 +1,38 @@
 
 <mat-card class="filter">
-  <button mat-raised-button [matMenuTriggerFor]="beer">Filter By:</button>
+  <div class="topinfo">
+  <span class="topsearch">
+    <h3>Search our beer database</h3>
+    <mat-form-field>
+    <mat-select placeholder="Filter">
+      <mat-option value="beername">Beer Name</mat-option>
+      <mat-option value="type">Type</mat-option>
+      <mat-option value="rating">Rating</mat-option>
+      <mat-option value="user">User</mat-option>
+      <mat-option value="brewery">Brewery</mat-option>
+    </mat-select>
+  </mat-form-field>
+    <mat-form-field>
+      <input matInput class="searchinput"placeholder="Enter search here">
+    </mat-form-field>
+  <button mat-button class="searchbutton">Search</button>
+</span>
+  <div>
+    <button mat-raised-button class="addbeer" (click)="openDialog()">Add a Beer</button>
+    <button mat-raised-button class="mybeers">My Beers</button>
+    <button mat-raised-button class="allbeers">All Beers</button>
+  </div>
+</div>
 
-  <mat-menu #beer="matMenu">
+  <!-- <button mat-raised-button [matMenuTriggerFor]="beer">Filter By:</button> -->
+
+  <!-- <mat-menu #beer="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="Name">Name</button>
     <button mat-menu-item [matMenuTriggerFor]="Type">Type</button>
     <button mat-menu-item [matMenuTriggerFor]="Rating">Rating</button>
-  </mat-menu>
+  </mat-menu> -->
 
-  <mat-menu #Type="matMenu">
+  <!-- <mat-menu #Type="matMenu">
     <button mat-menu-item>'Type'</button>
     <button mat-menu-item>'Type'</button>
     <button mat-menu-item>'Type'</button>
@@ -19,9 +44,7 @@
     <button mat-menu-item>'Rating'</button>
     <button mat-menu-item>'Rating'</button>
     <button mat-menu-item>'Rating'</button>
-  </mat-menu>
-  
-    <button mat-raised-button (click)="openDialog()">Pick one</button>
+  </mat-menu> -->
 
 </mat-card>
 <div class="card-container">
