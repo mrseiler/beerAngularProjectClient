@@ -39,6 +39,7 @@ import { AddArrayPipe } from './add-array.pipe';
 import { AccountDialogComponent } from './DialogBoxes/account-dialog/account-dialog.component';
 import { YourBeersComponent } from './beers/your-beers/your-beers.component';
 import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/update-user-snackbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/up
     MatTreeModule,
     MatDialogModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FontAwesomeModule
   ],
   entryComponents:[
     AccountDialogComponent,

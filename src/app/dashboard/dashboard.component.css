@@ -1,3 +1,5 @@
+
+
 .gridArea{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
@@ -29,4 +31,12 @@
 }
 .featuredBeerTwo{
     grid-area: beerTwo;
+}
+.featuredBeerOne{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.featuredBeerTwo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
