@@ -6,6 +6,7 @@ import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
 import { BeerDialogBoxComponent } from '../beer-dialog-box/beer-dialog-box.component';
 import { MatDialog } from '../../../node_modules/@angular/material';
+import { UserbeerdialogComponent } from '../dialogs/userbeerdialog/userbeerdialog.component'
 
 
 @Component({
@@ -51,7 +52,8 @@ export class BeersComponent implements OnInit {
   constructor(private service: BeerServiceService,
               private userbeerservice: UserbeerService,
               private dataService: DataService,
-              public dialog: MatDialog
+              public dialog: MatDialog,
+              public userBeerDialog: MatDialog
               ) {
     // this.beerArray = this.getBeers()
     
@@ -74,9 +76,24 @@ export class BeersComponent implements OnInit {
     });
  
     dialogRef.afterClosed().subscribe(result => {
+      
+    });
+  }
+
+
+  userBeerOpenDialog(name): void {
+    const dialogRef = this.userBeerDialog.open(UserbeerdialogComponent, {
+      data: { name: name}
+    });
+ 
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
+  setBeertoLocal(beer){
+    localStorage.setItem('beername',beer)
+  }
+
   getBeers = () => {
     this.service.getBeers().subscribe((beers) => {
     this.beerArray = Object.values(beers)
@@ -119,7 +136,6 @@ export class BeersComponent implements OnInit {
   }
   userBeerGetAll = () => {
     this.userbeerservice.getAll().subscribe((beers) => {
-      console.log("user beers: ",beers)
       this.userBeerArray = Object.values(beers)
     })
   }

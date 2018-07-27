@@ -17,7 +17,7 @@ export class BeerDialogBoxComponent implements OnInit {
   breweryLocation:string;
   style:string;
   abv:number;
-beer:any;
+  beer:any;
   
 
 
@@ -34,7 +34,8 @@ beer:any;
       }
     }
     this.addBeer(this.beer);
-    this.close();
+    
+    location.reload();
   }
 
   close():void{

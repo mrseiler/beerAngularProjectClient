@@ -38,6 +38,7 @@ import { AddArrayPipe } from './add-array.pipe';
 import { BeerDialogBoxComponent } from './beer-dialog-box/beer-dialog-box.component';
 import { AccountDialogComponent } from './account-dialog/account-dialog.component';
 import { DeleteAccountDialogComponent } from './delete-account-dialog/delete-account-dialog.component';
+import { UserbeerdialogComponent } from './dialogs/userbeerdialog/userbeerdialog.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { DeleteAccountDialogComponent } from './delete-account-dialog/delete-acc
     BeerDialogBoxComponent,
     AccountDialogComponent,
     DeleteAccountDialogComponent,
+    UserbeerdialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +98,7 @@ import { DeleteAccountDialogComponent } from './delete-account-dialog/delete-acc
   entryComponents:[
     AccountDialogComponent,
     BeerDialogBoxComponent,
+    UserbeerdialogComponent,
     DeleteAccountDialogComponent
   ],
   providers: [AuthService, AuthGuard,AccountDialogComponent,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
