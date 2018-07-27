@@ -1,10 +1,31 @@
-<mat-grid-list cols="3" rowHeight="50%">
-    <mat-grid-tile
-        *ngFor="let tile of tiles"
-        [colspan]="tile.cols"
-        [rowspan]="tile.rows"
-        [style.background]="tile.color">
-      {{tile.text}}
-    </mat-grid-tile>
-  </mat-grid-list>
-  
+<div class="gridArea">
+  <mat-card class="welcome"><mat-card-title>   Welcome {{firstname}}! Take a look around!</mat-card-title></mat-card>
+  <mat-card class="breweryOTM">
+    <mat-card-title>
+      Check out the brewery of the month! 
+    </mat-card-title>
+    <mat-card-title>
+        Four Day Ray Brewing
+    </mat-card-title>
+      <mat-card-subtitle>
+          Address: 11671 Lantern Rd, Fishers, IN 46038
+      </mat-card-subtitle>
+
+      <mat-card-subtitle>
+          Menu: <a href="http://www.fourdayray.com/menu/"> fourdayray.com</a>
+      </mat-card-subtitle>
+      
+      <mat-card-subtitle>
+          Phone: (317) 343-0200
+      </mat-card-subtitle>
+   </mat-card>
+  <mat-card class="featuredBeerOne">
+      <mat-card-title>
+          Featured Beer
+      </mat-card-title>
+      <mat-card-title>
+          
+      </mat-card-title>
+  </mat-card>
+  <mat-card class="featuredBeerTwo">3</mat-card>
+</div>

@@ -1,3 +1,4 @@
+
 <mat-card class="filter">
   <button mat-raised-button [matMenuTriggerFor]="beer">Filter By:</button>
 
@@ -33,9 +34,11 @@
         <li>Brewery: {{beer.brewery}}</li>
         <li>ABV: {{beer.abv}}</li>
         <li>Style: {{beer.style}}</li>
-        <button mat-raised-button (click)="addToMyList(beer, 'Indy', 3, 'Worst ever')">Add user beer</button>
-        <!-- <li>{{beer.brewery}}</li>
-                <li>{{beer.brewerlocation}}</li> -->
+        <li>Rating: {{beer.rating | addArray }}</li>
+        <div>
+          <button mat-raised-button *ngIf="addButtonDisplay(beer.name)"(click)="setBeertoLocal(beer.name)" (click)="userBeerOpenDialog(beer.name)">Add user beer</button>
+        </div>
+        
       </ul>
     </mat-card-content>
   </mat-card>

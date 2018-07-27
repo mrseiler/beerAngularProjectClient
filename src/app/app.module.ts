@@ -22,9 +22,8 @@ import {
   MatCardModule, 
   MatExpansionModule,
   MatSelectModule,
-  MatGridListModule,MatSnackBarModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule, MatDialogModule
+  MatGridListModule,MatSnackBarModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule, MatDialogModule, MatTabsModule
 } from '@angular/material';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog'
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AuthGuard } from './guards/auth.guard';
@@ -35,10 +34,13 @@ import { FooterComponent } from './ui/footer/footer.component';
 import { BeersComponent } from './beers/beers.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { DeleteAccountDialogComponent } from './DialogBoxes/delete-account-dialog/delete-account-dialog.component';
+import { BeerDialogBoxComponent } from './DialogBoxes/beer-dialog-box/beer-dialog-box.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BeerDialogBoxComponent } from './beer-dialog-box/beer-dialog-box.component';
-import { AccountDialogComponent } from './account-dialog/account-dialog.component';
-import { DeleteAccountDialogComponent } from './delete-account-dialog/delete-account-dialog.component';
+import { AddArrayPipe } from './add-array.pipe';
+import { UserbeerdialogComponent } from './dialogs/userbeerdialog/userbeerdialog.component';
+import { AccountDialogComponent } from './DialogBoxes/account-dialog/account-dialog.component';
+import { YourBeersComponent } from './beers/your-beers/your-beers.component';
 import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/update-user-snackbar.component';
 
 @NgModule({
@@ -55,9 +57,12 @@ import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/up
     BeersComponent,
     MainNavComponent,
     DashboardComponent,
+    AddArrayPipe,
     BeerDialogBoxComponent,
     AccountDialogComponent,
     DeleteAccountDialogComponent,
+    UserbeerdialogComponent,
+    YourBeersComponent,
     UpdateUserSnackbarComponent,
   ],
   imports: [
@@ -100,6 +105,7 @@ import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/up
   entryComponents:[
     AccountDialogComponent,
     BeerDialogBoxComponent,
+    UserbeerdialogComponent,
     DeleteAccountDialogComponent
   ],
   providers: [AuthService, AuthGuard,AccountDialogComponent,FlashMessagesService

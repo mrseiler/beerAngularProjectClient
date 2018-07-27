@@ -1,80 +1,112 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerServiceService } from '../services/beer-service.service'
 import { Beer } from '../models/beer'
-import { UserbeerService } from '../../app/services/userbeer.service'
+import { UserbeerService } from '../services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
 import { MatDialog } from '../../../node_modules/@angular/material';
-import { BeerDialogBoxComponent } from '../beer-dialog-box/beer-dialog-box.component';
+import { UserbeerdialogComponent } from '../dialogs/userbeerdialog/userbeerdialog.component'
+import { BeerDialogBoxComponent } from '../DialogBoxes/beer-dialog-box/beer-dialog-box.component';
+
 
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
-  styleUrls: ['./beers.component.css']
+  styleUrls: ['./beers.component.css'] 
 })
 export class BeersComponent implements OnInit {
-  beerlist:any;
-  beerArray:any;
-  beers: any
-
-  location:string;
-  rating:number;
-  comment:string;
+  user: any;
+  locationhad: string;
+  rating: number;
+  comment: string;
   currentUser: any;
+  beerlist:any
+  beerArray:any;
   userBeerArray:any;
   searchedUserBeers:any;
   searchedBeers:any;
-  userbeer:UserBeer;
-  beer: Beer = {
-    beer:{
-      name:"Red Rye",
-      brewery:"Founder's",
-      breweryLocation:"Grand Rapids, MI",
-      style:"IPA",
-      abv:4,
-      rating:[3],
-      validatedByBrewer:false
+  userbeer:any
+  display:Boolean = true;
+  // beer: Beer = {
+  //   beer:{
+  //     name:"Tom's Beer",
+  //     brewery:"Founder's",
+  //     breweryLocation:"Grand Rapids, MI",
+  //     style:"IPA",
+  //     abv:4,
+  //     rating:[3, 4, 5, 6, 2],
+  //     validatedByBrewer:false
+  //   }
+  // }
+
+  addButtonDisplay(name){
+    for(let beer of this.userBeerArray){
+      if (beer.name == name){
+        return false
+      }
     }
+    return true;
   }
   
+    
   constructor(private service: BeerServiceService,
               private userbeerservice: UserbeerService,
-            private dataService: DataService,
-          public dialog: MatDialog) {
+              private dataService: DataService,
+              public dialog: MatDialog,
+              public userBeerDialog: MatDialog
+              ) {}
     // this.beerArray = this.getBeers()
+
+  ngOnInit() {
+    // this.addBeer(this.beer)
+    // this.editBeer(this.beer)
+    this.userBeerGetAll()
+    this.getBeers()
     
-   }
-   openDialog(): void {
+    
+    // console.log("userbeer array: ", this.userBeerArray)
+    // this.currentUser = this.dataService.getUser().subscribe();
+    // console.log(this.currentUser)
+  }
+
+  openDialog(): void {
     const dialogRef = this.dialog.open(BeerDialogBoxComponent, {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      
+    });
+  }
+
+
+  userBeerOpenDialog(name): void {
+    const dialogRef = this.userBeerDialog.open(UserbeerdialogComponent, {
+      data: { name: name}
+    });
+ 
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-  } 
-
-  ngOnInit() {
-    this.addBeer(this.beer)
-    // this.editBeer(this.beer)
-    this.getBeers()
-    // this.currentUser = this.dataService.getUser().subscribe();
-    console.log(this.currentUser)
   }
+  setBeertoLocal(beer){
+    localStorage.setItem('beername',beer)
+  }
+
   getBeers = () => {
     this.service.getBeers().subscribe((beers) => {
-    this.beerArray = Object.values(beers)
+      this.beerArray = Object.values(beers)
     })
     // console.log(this.beerArray)
   }
 
-  addBeer = (data) =>{
+  addBeer = (data) => {
     this.service.addBeer(data).subscribe()
   }
 
   getOneBeer = (id) => {
     this.service.getOneBeer(id).subscribe((beer) => {
-      console.log("beer: ",beer)
-      
+      console.log("beer: ", beer)
+
     })
   }
 
@@ -90,10 +122,6 @@ export class BeersComponent implements OnInit {
 
   deleteBeer = (id) => {
     this.service.deleteBeer(id).subscribe()
-  }
-
-  getAllBeers = () => {
-    this.service.getBeers().subscribe();
   }
   
   userBeerCreate = (data) => {
@@ -122,16 +150,22 @@ export class BeersComponent implements OnInit {
   }
 
   addToMyList = (beer, location, rating, comment) => {
-      this.userbeer = {
-        userbeer:{
-          name:beer.name,
-          locationhad: location,
-          rating: rating,
-          comment: comment
-        }
+    this.userbeer = {
+      userbeer: {
+        name: beer.name,
+        locationhad: location,
+        rating: rating,
+        comment: comment
+      }
     }
     this.userBeerCreate(this.userbeer)
   }
 
   // setUserAsBrewer(isBrewer)
+
+  getUser() {
+    this.user = function () {
+
+    }
+  }
 }

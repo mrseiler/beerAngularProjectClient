@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountDialogComponent } from '../account-dialog/account-dialog.component';
 import { MatDialog, MatSnackBar } from '../../../node_modules/@angular/material';
 import { AuthService } from '../services/auth.service';
 import { Router } from '../../../node_modules/@angular/router';
-import { DeleteAccountDialogComponent } from '../delete-account-dialog/delete-account-dialog.component';
+import { DeleteAccountDialogComponent } from '../DialogBoxes/delete-account-dialog/delete-account-dialog.component';
+import { AccountDialogComponent } from '../DialogBoxes/account-dialog/account-dialog.component';
 
 @Component({
   selector: 'app-drinkers',
@@ -17,8 +17,7 @@ export class DrinkersComponent implements OnInit {
   username: string;
   email: string;
   users: Object[] = [];
-  message: string = "User successfully updated.";
-  action: string = "Yay";
+
 
   constructor(public dialog: MatDialog, public auth:AuthService, public router: Router, public snackBar: MatSnackBar) { }
 
@@ -57,14 +56,4 @@ export class DrinkersComponent implements OnInit {
       this.email = userInfo[1];
     })
   }
-
-  // deleteUser() {
-  //   this.auth.deleteUser(localStorage.id).subscribe(data => {
-  //     this.users.push(data);
-  //     localStorage.clear();
-  //     this.router.navigate(['/login']);
-  //   });
-  //   console.log("deleteeeeee");
-  // }
-
 }
