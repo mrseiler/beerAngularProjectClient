@@ -33,3 +33,6 @@
     background-repeat: no-repeat;
     height: 100vh;
 }
+.flash {
+    background-color: green;
+}

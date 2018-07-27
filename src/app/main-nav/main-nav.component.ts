@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class MainNavComponent {
   isCollapsed: boolean = true;
-
+  
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)

@@ -7,9 +7,16 @@
 }
 .card-info{
     margin: 1em;
+    background: #9AE17B;
+}
+.spacing{
+    flex: 1 1 auto;
 }
 .filter{
-    flex: 1 1 auto;
+    background: #307470;
+}
+.beerCards-Color{
+    background: rgba(154, 225, 123, 0.741);
 }
 @media screen and (max-width: 770px){
 

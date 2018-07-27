@@ -6,9 +6,9 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-toolbar class="sidenavTitle">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/mainnav/home">Home</a>
+      <a mat-list-item routerLink="/mainnav/home"> Home</a>
       <a mat-list-item routerLink="/mainnav/beers">Beer</a>
       <a mat-list-item routerLink="/mainnav/account">Account</a>
       <a mat-list-item routerLink="/mainnav/logout" (click)="logout()">Logout</a>
@@ -16,7 +16,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="title">
+    <mat-toolbar class="title">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -30,6 +30,8 @@
           Hold My Beer
         </span>
     </mat-toolbar>
+    <div class="contentColor">
     <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

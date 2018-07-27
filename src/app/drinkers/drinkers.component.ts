@@ -17,8 +17,7 @@ export class DrinkersComponent implements OnInit {
   username: string;
   email: string;
   users: Object[] = [];
-  message: string = "User successfully updated.";
-  action: string = "Yay";
+
 
   constructor(public dialog: MatDialog, public auth:AuthService, public router: Router, public snackBar: MatSnackBar) { }
 
@@ -57,14 +56,4 @@ export class DrinkersComponent implements OnInit {
       this.email = userInfo[1];
     })
   }
-
-  // deleteUser() {
-  //   this.auth.deleteUser(localStorage.id).subscribe(data => {
-  //     this.users.push(data);
-  //     localStorage.clear();
-  //     this.router.navigate(['/login']);
-  //   });
-  //   console.log("deleteeeeee");
-  // }
-
 }
