@@ -28,6 +28,11 @@ export class BeerServiceService {
     .pipe()
   }
 
+  editRating(name, rating){ 
+    console.log(name, rating)
+    return this.http.put(`http://localhost:3000/api/beer/addrating/${name}`, rating, {headers:this.setHeader()})
+  }
+
   editBeer(beer, id){
     return this.http.put(`http://localhost:3000/api/beer/editbeer/${id}`, beer, {headers:this.setHeader()})
   }

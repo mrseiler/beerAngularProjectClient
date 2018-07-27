@@ -29,8 +29,8 @@ export class UserbeerService {
   edit(edit){
     return this.http.put(`http://localhost:3000/api/userbeer/search/${edit}`, {headers:this.setHeader()}).pipe()
   }
-  delete(id){
-    return this.http.delete(`http://localhost:3000/api/userbeer/search/${id}`, {headers:this.setHeader()}).pipe()
+  delete(name){
+    return this.http.delete(`http://localhost:3000/api/userbeer/delete/${name}`, {headers:this.setHeader()}).pipe()
   }
   
 

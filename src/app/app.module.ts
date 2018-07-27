@@ -11,7 +11,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
-import {FlashMessagesModule} from 'angular2-flash-messages';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 import {
   MatToolbarModule, 
   MatButtonModule, 

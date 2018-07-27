@@ -15,6 +15,7 @@ import { BeerDialogBoxComponent } from '../DialogBoxes/beer-dialog-box/beer-dial
   styleUrls: ['./beers.component.css'] 
 })
 export class BeersComponent implements OnInit {
+  deleted:Object[] = []
   user: any;
   locationhad: string;
   rating: number;
@@ -147,8 +148,12 @@ export class BeersComponent implements OnInit {
   userBeerEdit = (data) => {
     this.userbeerservice.edit(data).subscribe()
   }
-  userBeerDelete = (id) => {
-    this.userbeerservice.delete(id).subscribe()
+  userBeerDelete = (name) => {
+    this.userbeerservice.delete(name).subscribe(data => {
+      this.deleted.push(data)
+      console.log("I am here")
+      location.reload()
+    })
   }
 
   addToMyList = (beer, location, rating, comment) => {

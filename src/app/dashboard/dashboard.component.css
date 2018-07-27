@@ -1,15 +1,22 @@
+<<<<<<< HEAD
 .wrapper {
     background-color: green;
 }
+=======
+>>>>>>> 465078297545fd5752ca196d74d1be78d023a673
 
 .gridArea{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;    
     grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1em;
+<<<<<<< HEAD
     margin-left: 1em;
     margin-right: 1em;
     padding-bottom: 1em;
+=======
+    margin:1em;
+>>>>>>> 465078297545fd5752ca196d74d1be78d023a673
     grid-template-areas: 
     "welcome welcome welcome welcome"
     "brewery brewery brewery brewery"
@@ -28,19 +35,27 @@
 }
 .breweryOTM{
     grid-area: brewery;
+<<<<<<< HEAD
     
+=======
+    background: #6BBA62;
+>>>>>>> 465078297545fd5752ca196d74d1be78d023a673
 }
 .featuredBeerOne{
     grid-area: beerOne;
+    background: #6BBA62;
 }
 .featuredBeerTwo{
     grid-area: beerTwo;
+    background: #6BBA62;
 }
 .featuredBeerOne{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background: #6BBA62;
 }
 .featuredBeerTwo{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background: #6BBA62;
 }
