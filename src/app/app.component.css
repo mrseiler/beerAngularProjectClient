@@ -2,3 +2,7 @@ body{
     margin-left: 4em;
     margin-top: 2em;
 }
+flash-messages {
+    color: red;
+    text-align: center;
+}

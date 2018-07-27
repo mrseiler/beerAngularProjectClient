@@ -1,6 +1,5 @@
-
 <mat-card class="filter">
-  <div class="topinfo">
+  <span class="topinfo">
   <span class="topsearch">
     <h3>Search our beer database</h3>
     <mat-form-field>
@@ -17,12 +16,18 @@
     </mat-form-field>
   <button mat-button class="searchbutton">Search</button>
 </span>
+<div class="buttons">
   <div>
     <button mat-raised-button class="addbeer" (click)="openDialog()">Add a Beer</button>
-    <button mat-raised-button class="mybeers">My Beers</button>
-    <button mat-raised-button class="allbeers">All Beers</button>
   </div>
-</div>
+  <div>
+    <button mat-raised-button class="singlebutton" (click)="toggleButton()">My Beers</button>
+  </div>
+  <div>
+    <button mat-raised-button class="singlebutton" (click)="toggleButton()">All Beers</button>
+  </div>
+  </div>
+</span>
 
   <!-- <button mat-raised-button [matMenuTriggerFor]="beer">Filter By:</button> -->
 

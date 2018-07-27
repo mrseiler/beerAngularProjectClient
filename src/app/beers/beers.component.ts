@@ -47,7 +47,6 @@ export class BeersComponent implements OnInit {
     }
     return true;
   }
-  
     
   constructor(private service: BeerServiceService,
               private userbeerservice: UserbeerService,
@@ -67,6 +66,9 @@ export class BeersComponent implements OnInit {
     // console.log("userbeer array: ", this.userBeerArray)
     // this.currentUser = this.dataService.getUser().subscribe();
     // console.log(this.currentUser)
+  }
+  toggleButton() {
+    
   }
 
   openDialog(): void {
@@ -168,4 +170,5 @@ export class BeersComponent implements OnInit {
 
     }
   }
+
 }
