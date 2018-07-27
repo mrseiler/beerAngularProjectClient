@@ -20,7 +20,7 @@ import {
   MatCardModule, 
   MatExpansionModule,
   MatSelectModule,
-  MatGridListModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule, MatDialogModule, MatTabsModule
+  MatGridListModule,MatSnackBarModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule, MatDialogModule, MatTabsModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -38,6 +38,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddArrayPipe } from './add-array.pipe';
 import { AccountDialogComponent } from './DialogBoxes/account-dialog/account-dialog.component';
 import { YourBeersComponent } from './beers/your-beers/your-beers.component';
+import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/update-user-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { YourBeersComponent } from './beers/your-beers/your-beers.component';
     AccountDialogComponent,
     DeleteAccountDialogComponent,
     YourBeersComponent,
+    UpdateUserSnackbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +95,8 @@ import { YourBeersComponent } from './beers/your-beers/your-beers.component';
     MatPaginatorModule,
     MatTreeModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule
   ],
   entryComponents:[
     AccountDialogComponent,

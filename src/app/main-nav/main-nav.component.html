@@ -12,14 +12,11 @@
       <a mat-list-item routerLink="/mainnav/beers">Beer</a>
       <a mat-list-item routerLink="/mainnav/account">Account</a>
       <a mat-list-item routerLink="/mainnav/logout" (click)="logout()">Logout</a>
-    <div class="spacing">
-      <div></div>
-    </div>
-      <a mat-list-item >Hello</a>
+    <div class="spacing"></div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary"> 
+    <mat-toolbar color="primary" class="title">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -29,8 +26,9 @@
         <mat-icon aria-label="Side nav toggle icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2000px-Hamburger_icon.svg.png" style="height: 45px; margin-left: -25px; margin-top: -15px;" alt=""></mat-icon>
       </button>
       <img src="../../assets/BeerLogo.png" style="height: 40px;" alt="">
-      <span class="title">
-          Hold My Beer</span>
+      <span class="logostuff">
+          Hold My Beer
+        </span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
