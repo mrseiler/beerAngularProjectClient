@@ -28,7 +28,8 @@
 }
 .breweryOTM{
     grid-area: brewery;
-    
+    background: url('../../assets/fourdayray.jpg');
+    background-repeat: no-repeat;
 }
 .featuredBeerOne{
     grid-area: beerOne;
@@ -47,4 +48,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: #6BBA62;
+}
+.fattire {
+    position: absolute;
+    margin-left: 60%;
+    z-index: 500;
 }
