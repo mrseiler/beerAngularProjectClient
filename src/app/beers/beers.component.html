@@ -22,9 +22,8 @@
   </mat-menu>
   
     <button mat-raised-button (click)="openDialog()">Pick one</button>
-    <button mat-raised-button routerLink="/mainnav/beers/yourbeers"> Your Beers</button>
+
 </mat-card>
-    <router-outlet></router-outlet>
 <div class="card-container">
   <mat-card *ngFor="let beer of beerArray">
     <mat-card-title>
@@ -36,9 +35,10 @@
         <li>ABV: {{beer.abv}}</li>
         <li>Style: {{beer.style}}</li>
         <li>Rating: {{beer.rating | addArray }}</li>
-        <button mat-raised-button (click)="addToMyList(beer, 'Indy', 3, 'Worst ever')">Add user beer</button>
-        <!-- <li>{{beer.brewery}}</li>
-                <li>{{beer.brewerlocation}}</li> -->
+        <div>
+          <button mat-raised-button *ngIf="addButtonDisplay(beer.name)"(click)="setBeertoLocal(beer.name)" (click)="userBeerOpenDialog(beer.name)">Add user beer</button>
+        </div>
+        
       </ul>
     </mat-card-content>
   </mat-card>

@@ -10,6 +10,8 @@ import { AuthService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
+import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
+import {FlashMessagesModule} from 'angular2-flash-messages';
 import {
   MatToolbarModule, 
   MatButtonModule, 
@@ -36,10 +38,10 @@ import { DeleteAccountDialogComponent } from './DialogBoxes/delete-account-dialo
 import { BeerDialogBoxComponent } from './DialogBoxes/beer-dialog-box/beer-dialog-box.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddArrayPipe } from './add-array.pipe';
+import { UserbeerdialogComponent } from './dialogs/userbeerdialog/userbeerdialog.component';
 import { AccountDialogComponent } from './DialogBoxes/account-dialog/account-dialog.component';
 import { YourBeersComponent } from './beers/your-beers/your-beers.component';
 import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/update-user-snackbar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BeerDialogBoxComponent,
     AccountDialogComponent,
     DeleteAccountDialogComponent,
+    UserbeerdialogComponent,
     YourBeersComponent,
     UpdateUserSnackbarComponent,
   ],
@@ -96,16 +99,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatPaginatorModule,
     MatTreeModule,
     MatDialogModule,
-    MatTabsModule,
     MatSnackBarModule,
-    FontAwesomeModule
+    FlashMessagesModule
   ],
   entryComponents:[
     AccountDialogComponent,
     BeerDialogBoxComponent,
+    UserbeerdialogComponent,
     DeleteAccountDialogComponent
   ],
-  providers: [AuthService, AuthGuard,AccountDialogComponent
+  providers: [AuthService, AuthGuard,AccountDialogComponent,FlashMessagesService
   ],
   bootstrap: [AppComponent]
 })

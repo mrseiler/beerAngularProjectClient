@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 export class DataService {
   
   user:any;
-
+  uid:any;
   constructor() { }
 
   getUser = () => {
@@ -16,7 +16,7 @@ export class DataService {
   }
 
   setUser = (data) => {
-    this.user = data
-    console.log("data: " ,data.user.id)
+    console.log(data.user.id)
+    // localStorage.setItem('uid', data.user.id)
   }
 }

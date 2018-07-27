@@ -1,7 +1,7 @@
 .yes{
-    background-color: red;
+    background-color: orangered;
     margin-right: 5px;
 }
 .no {
-    background-color: lightgreen;
+    background-color: darkgreen;
 }

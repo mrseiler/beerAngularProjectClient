@@ -5,8 +5,8 @@ import { UserbeerService } from '../services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
 import { MatDialog } from '../../../node_modules/@angular/material';
+import { UserbeerdialogComponent } from '../dialogs/userbeerdialog/userbeerdialog.component'
 import { BeerDialogBoxComponent } from '../DialogBoxes/beer-dialog-box/beer-dialog-box.component';
-// import { AddArrayPipe } from '../../app/add-array.pipe'
 
 
 @Component({
@@ -20,37 +20,53 @@ export class BeersComponent implements OnInit {
   rating: number;
   comment: string;
   currentUser: any;
-  beerlist: any
-  beerArray: any;
-  userBeerArray: any;
-  searchedUserBeers: any;
-  searchedBeers: any;
-  userbeer: UserBeer;
-  display: Boolean = true;
-  beer: Beer = {
-    beer: {
-      name: "Tom's Beer",
-      brewery: "Founder's",
-      breweryLocation: "Grand Rapids, MI",
-      style: "IPA",
-      abv: 4,
-      rating: [3, 4, 5, 6, 2],
-      validatedByBrewer: false
-    }
-  }
-
-  // addButtonDisplay(beer){
-  //   if()
+  beerlist:any
+  beerArray:any;
+  userBeerArray:any;
+  searchedUserBeers:any;
+  searchedBeers:any;
+  userbeer:any
+  display:Boolean = true;
+  // beer: Beer = {
+  //   beer:{
+  //     name:"Tom's Beer",
+  //     brewery:"Founder's",
+  //     breweryLocation:"Grand Rapids, MI",
+  //     style:"IPA",
+  //     abv:4,
+  //     rating:[3, 4, 5, 6, 2],
+  //     validatedByBrewer:false
+  //   }
   // }
 
-
+  addButtonDisplay(name){
+    for(let beer of this.userBeerArray){
+      if (beer.name == name){
+        return false
+      }
+    }
+    return true;
+  }
+  
+    
   constructor(private service: BeerServiceService,
-    private userbeerservice: UserbeerService,
-    private dataService: DataService,
-    public dialog: MatDialog
-  ) {
+              private userbeerservice: UserbeerService,
+              private dataService: DataService,
+              public dialog: MatDialog,
+              public userBeerDialog: MatDialog
+              ) {}
     // this.beerArray = this.getBeers()
 
+  ngOnInit() {
+    // this.addBeer(this.beer)
+    // this.editBeer(this.beer)
+    this.userBeerGetAll()
+    this.getBeers()
+    
+    
+    // console.log("userbeer array: ", this.userBeerArray)
+    // this.currentUser = this.dataService.getUser().subscribe();
+    // console.log(this.currentUser)
   }
 
   openDialog(): void {
@@ -58,15 +74,22 @@ export class BeersComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      
+    });
+  }
+
+
+  userBeerOpenDialog(name): void {
+    const dialogRef = this.userBeerDialog.open(UserbeerdialogComponent, {
+      data: { name: name}
+    });
+ 
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
-  ngOnInit() {
-    // this.addBeer(this.beer)
-    // this.editBeer(this.beer)
-    this.getBeers()
-    // this.currentUser = this.dataService.getUser().subscribe();
-    // console.log(this.currentUser)
+  setBeertoLocal(beer){
+    localStorage.setItem('beername',beer)
   }
 
   getBeers = () => {
@@ -100,11 +123,7 @@ export class BeersComponent implements OnInit {
   deleteBeer = (id) => {
     this.service.deleteBeer(id).subscribe()
   }
-
-  getAllBeers = () => {
-    this.service.getBeers().subscribe();
-  }
-
+  
   userBeerCreate = (data) => {
     this.userbeerservice.create(data).subscribe()
   }

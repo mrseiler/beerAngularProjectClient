@@ -1,0 +1,11 @@
+.submit {
+    background-color: darkgreen;
+}
+.cancel {
+    background-color: orangered;
+    margin-left: 5px;
+}
+.snackbar {
+    background-color: green;
+    color: orange;
+}

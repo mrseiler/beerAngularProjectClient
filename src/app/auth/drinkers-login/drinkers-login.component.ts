@@ -25,14 +25,6 @@ export class DrinkersLoginComponent implements OnInit {
       password: this.password
     }}
     this.auth.login(newUser);
-
-    let snackBarRef = this.snackBar.open('You successfully logged in.',"Success!", {
-      duration: 2000
-    });
-    
-    snackBarRef.afterDismissed().subscribe(() => {
-      console.log('The snack-bar was dismissed');
-    });
   }
 
 }
