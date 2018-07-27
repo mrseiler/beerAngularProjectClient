@@ -10,6 +10,8 @@ import { AuthService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
+import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
+import {FlashMessagesModule} from 'angular2-flash-messages';
 import {
   MatToolbarModule, 
   MatButtonModule, 
@@ -92,14 +94,15 @@ import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/up
     MatPaginatorModule,
     MatTreeModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FlashMessagesModule
   ],
   entryComponents:[
     AccountDialogComponent,
     BeerDialogBoxComponent,
     DeleteAccountDialogComponent
   ],
-  providers: [AuthService, AuthGuard,AccountDialogComponent
+  providers: [AuthService, AuthGuard,AccountDialogComponent,FlashMessagesService
   ],
   bootstrap: [AppComponent]
 })

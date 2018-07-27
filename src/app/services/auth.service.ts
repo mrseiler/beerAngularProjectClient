@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { DataService } from './data.service'
 import { MatSnackBar } from '../../../node_modules/@angular/material';
+import { FlashMessagesService } from '../../../node_modules/angular2-flash-messages';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
   userInfo: Token;
   isLoggedIn = new Subject<boolean>();
 
-  constructor(public http: HttpClient, public router: Router, private dataService: DataService, public snackBar: MatSnackBar) {}
+  constructor(public http: HttpClient, public router: Router, private dataService: DataService, public snackBar: MatSnackBar, public flashMessage: FlashMessagesService) {}
 
   register(regUserData) {
     return this.http.post(`http://localhost:3000/api/user/createuser`, regUserData).subscribe((returnData) => {
@@ -25,6 +26,7 @@ export class AuthService {
       localStorage.setItem('id', data[0].id);
       this.isLoggedIn.next(true);
       this.router.navigate(['/mainnav/home']);
+     
     })
     
   }
@@ -38,10 +40,21 @@ export class AuthService {
       localStorage.setItem('id', data[0].id);
       this.isLoggedIn.next(true);
       this.router.navigate(['/mainnav/home']);
+      let snackBarRef = this.snackBar.open('You successfully created an account.',"Success!", {
+        duration: 1000
+      });
+      
+      snackBarRef.afterDismissed().subscribe(() => {
+        console.log("success")
+      });
     },
     err => {
       console.log(err);
-      alert("Invalid Username/Password combination");
+      this.flashMessage.show(err.error.error, { 
+        timeout: 2000,
+        cssClass: 'flash',
+        styleURLs: ['./auth/drinkers-login/drinkers-login.component.css']
+      });
     }
   )
   }
@@ -60,7 +73,7 @@ export class AuthService {
     this.isLoggedIn.next(false);
     this.router.navigate(['/login']);
     let snackBarRef = this.snackBar.open('You successfully logged out.',"Success!", {
-      duration: 2000
+      duration: 2000,
     });
     
     snackBarRef.afterDismissed().subscribe(() => {

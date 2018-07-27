@@ -34,11 +34,11 @@ export class AccountDialogComponent implements OnInit {
     this.auth.update(localStorage.id, editUser).subscribe(data => {
       this.users.push(data);
       let snackBarRef = this.snackBar.open('Your account was successfully updated.',"Success!", {
-        duration: 2000
+        duration: 1000,
+        panelClass: ["snackbar"]
       });
       
       snackBarRef.afterDismissed().subscribe(() => {
-        console.log('The snack-bar was dismissed');
         location.reload();
       });
             

@@ -1,9 +1,9 @@
 .update {
-    background-color: yellow;
+    background-color: darkgreen;
     margin-right: 5px;
 }
 .delete {
-    background-color: red;
+    background-color: orangered;
 }
 .info {
     margin-left: 20px;

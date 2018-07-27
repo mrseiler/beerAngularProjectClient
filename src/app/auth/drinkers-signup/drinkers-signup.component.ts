@@ -32,14 +32,5 @@ export class DrinkersSignupComponent implements OnInit {
       password: this.password
     }}
     this.auth.register(newUser);
-
-    let snackBarRef = this.snackBar.open('You successfully created an account.',"Success!", {
-      duration: 1000
-    });
-    
-    snackBarRef.afterDismissed().subscribe(() => {
-      console.log('The snack-bar was dismissed');
-      location.reload();
-    });
   }
 }
