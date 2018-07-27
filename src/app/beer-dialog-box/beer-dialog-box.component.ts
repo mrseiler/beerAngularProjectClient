@@ -12,7 +12,7 @@ export class BeerDialogBoxComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<BeerDialogBoxComponent>,
               private service:BeerServiceService) { }
 
-  beername:string;
+  name:string;
   brewery:string;
   breweryLocation:string;
   style:string;
@@ -26,7 +26,7 @@ beer:any;
   onSubmit():void{
     this.beer={
       beer:{
-        beername:this.beername,
+        name:this.name,
         brewery:this.brewery,
         breweryLocation:this.breweryLocation,
         style:this.style,

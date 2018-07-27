@@ -6,7 +6,6 @@ import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
 import { BeerDialogBoxComponent } from '../beer-dialog-box/beer-dialog-box.component';
 import { MatDialog } from '../../../node_modules/@angular/material';
-// import { AddArrayPipe } from '../../app/add-array.pipe'
 
 
 @Component({
@@ -25,23 +24,28 @@ export class BeersComponent implements OnInit {
   userBeerArray:any;
   searchedUserBeers:any;
   searchedBeers:any;
-  userbeer:UserBeer;
+  userbeer:any
   display:Boolean = true;
-  beer: Beer = {
-    beer:{
-      name:"Tom's Beer",
-      brewery:"Founder's",
-      breweryLocation:"Grand Rapids, MI",
-      style:"IPA",
-      abv:4,
-      rating:[3, 4, 5, 6, 2],
-      validatedByBrewer:false
-    }
-  }
-
-  // addButtonDisplay(beer){
-  //   if()
+  // beer: Beer = {
+  //   beer:{
+  //     name:"Tom's Beer",
+  //     brewery:"Founder's",
+  //     breweryLocation:"Grand Rapids, MI",
+  //     style:"IPA",
+  //     abv:4,
+  //     rating:[3, 4, 5, 6, 2],
+  //     validatedByBrewer:false
+  //   }
   // }
+
+  addButtonDisplay(name){
+    for(let beer of this.userBeerArray){
+      if (beer.name == name){
+        return false
+      }
+    }
+    return true;
+  }
   
     
   constructor(private service: BeerServiceService,
@@ -56,7 +60,11 @@ export class BeersComponent implements OnInit {
   ngOnInit() {
     // this.addBeer(this.beer)
     // this.editBeer(this.beer)
+    this.userBeerGetAll()
     this.getBeers()
+    
+    
+    // console.log("userbeer array: ", this.userBeerArray)
     // this.currentUser = this.dataService.getUser().subscribe();
     // console.log(this.currentUser)
   }
@@ -100,10 +108,6 @@ export class BeersComponent implements OnInit {
   deleteBeer = (id) => {
     this.service.deleteBeer(id).subscribe()
   }
-
-  getAllBeers = () => {
-    this.service.getBeers().subscribe();
-  }
   
   userBeerCreate = (data) => {
     this.userbeerservice.create(data).subscribe()
@@ -115,6 +119,7 @@ export class BeersComponent implements OnInit {
   }
   userBeerGetAll = () => {
     this.userbeerservice.getAll().subscribe((beers) => {
+      console.log("user beers: ",beers)
       this.userBeerArray = Object.values(beers)
     })
   }
