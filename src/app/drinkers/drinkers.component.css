@@ -10,10 +10,11 @@
     padding-bottom: 20px;
     margin-top: 20px;
     display: inline-block;
-    color: white;
-    border: 1px solid white;
+    color: black;
+    border: 1px solid black;
     text-align: center;
     padding: 5px;
+    width: 50%;
 }
 .info p {
     font-size: 18px;
@@ -23,10 +24,6 @@
 }
 
 .wrapper {
-    background: url(../../assets/beeraccount.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: 1px solid black;
     height: 92vh;
 }
 .fname {
