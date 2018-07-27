@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountDialogComponent } from '../account-dialog/account-dialog.component';
-import { MatDialog } from '../../../node_modules/@angular/material';
+import { MatDialog, MatSnackBar } from '../../../node_modules/@angular/material';
 import { AuthService } from '../services/auth.service';
 import { Router } from '../../../node_modules/@angular/router';
 import { DeleteAccountDialogComponent } from '../delete-account-dialog/delete-account-dialog.component';
@@ -17,8 +17,10 @@ export class DrinkersComponent implements OnInit {
   username: string;
   email: string;
   users: Object[] = [];
+  message: string = "User successfully updated.";
+  action: string = "Yay";
 
-  constructor(public dialog: MatDialog, public auth:AuthService, public router: Router) { }
+  constructor(public dialog: MatDialog, public auth:AuthService, public router: Router, public snackBar: MatSnackBar) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AccountDialogComponent, {
@@ -36,6 +38,12 @@ export class DrinkersComponent implements OnInit {
       console.log('The dialog was closed');
     });
   } 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+  
   ngOnInit() {
     this.fillData();
   }

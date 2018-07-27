@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { MatDialogRef } from '../../../node_modules/@angular/material';
+import { MatDialogRef, MatSnackBar } from '../../../node_modules/@angular/material';
 import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class DeleteAccountDialogComponent implements OnInit {
   users: Object[] = [];
 
   constructor(public auth: AuthService, public dialogRef: MatDialogRef<DeleteAccountDialogComponent>,
-  public router: Router) { }
+  public router: Router, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -23,9 +23,14 @@ export class DeleteAccountDialogComponent implements OnInit {
       this.users.push(data);
       localStorage.clear();
       this.dialogRef.close();
-      this.router.navigate(['/login']);
+      let snackBarRef = this.snackBar.open('Your account was successfully deleted.',"Success!", {
+        duration: 2000
+      });
+      
+      snackBarRef.afterDismissed().subscribe(() => {
+        this.router.navigate(['/login']);
+      });
     });
-    console.log("deleteeeeee");
   }
   close(): void{
     this.dialogRef.close();

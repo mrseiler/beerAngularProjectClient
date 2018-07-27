@@ -20,7 +20,7 @@ import {
   MatCardModule, 
   MatExpansionModule,
   MatSelectModule,
-  MatGridListModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule, MatDialogModule
+  MatGridListModule,MatSnackBarModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatPaginator, MatPaginatorModule, MatTreeModule, MatDialogModule
 } from '@angular/material';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog'
 import { HttpClientModule } from '@angular/common/http';
@@ -37,6 +37,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BeerDialogBoxComponent } from './beer-dialog-box/beer-dialog-box.component';
 import { AccountDialogComponent } from './account-dialog/account-dialog.component';
 import { DeleteAccountDialogComponent } from './delete-account-dialog/delete-account-dialog.component';
+import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/update-user-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DeleteAccountDialogComponent } from './delete-account-dialog/delete-acc
     BeerDialogBoxComponent,
     AccountDialogComponent,
     DeleteAccountDialogComponent,
+    UpdateUserSnackbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +92,7 @@ import { DeleteAccountDialogComponent } from './delete-account-dialog/delete-acc
     MatPaginatorModule,
     MatTreeModule,
     MatDialogModule,
+    MatSnackBarModule
   ],
   entryComponents:[
     AccountDialogComponent,
