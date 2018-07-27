@@ -1,5 +1,6 @@
 import { Component, OnInit, createPlatformFactory } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { MatSnackBar } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-drinkers-signup',
@@ -16,7 +17,7 @@ export class DrinkersSignupComponent implements OnInit {
   password: string;
   users: Object[] = [];
 
-  constructor(public auth: AuthService) {
+  constructor(public auth: AuthService, public snackBar: MatSnackBar) {
    }
 
   ngOnInit() {
@@ -30,10 +31,15 @@ export class DrinkersSignupComponent implements OnInit {
       email: this.email,
       password: this.password
     }}
-    console.log(newUser);
-    this.auth.register(newUser).subscribe(data => {
-      this.users.push(data);
+    this.auth.register(newUser);
+
+    let snackBarRef = this.snackBar.open('You successfully created an account.',"Success!", {
+      duration: 1000
     });
-    console.log(localStorage);
+    
+    snackBarRef.afterDismissed().subscribe(() => {
+      console.log('The snack-bar was dismissed');
+      location.reload();
+    });
   }
 }

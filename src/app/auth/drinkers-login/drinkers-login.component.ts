@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { MatSnackBar } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-drinkers-login',
@@ -13,7 +14,7 @@ export class DrinkersLoginComponent implements OnInit {
 
   users: Object[] = [];
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -23,8 +24,15 @@ export class DrinkersLoginComponent implements OnInit {
       username: this.username,
       password: this.password
     }}
-    // console.log(newUser);
     this.auth.login(newUser);
+
+    let snackBarRef = this.snackBar.open('You successfully logged in.',"Success!", {
+      duration: 2000
+    });
+    
+    snackBarRef.afterDismissed().subscribe(() => {
+      console.log('The snack-bar was dismissed');
+    });
   }
 
 }

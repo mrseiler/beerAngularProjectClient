@@ -5,6 +5,7 @@ import { Token } from '../models/Token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { DataService } from './data.service'
+import { MatSnackBar } from '../../../node_modules/@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -14,20 +15,27 @@ export class AuthService {
   userInfo: Token;
   isLoggedIn = new Subject<boolean>();
 
-  constructor(public http: HttpClient, public router: Router, private dataService: DataService) {}
+  constructor(public http: HttpClient, public router: Router, private dataService: DataService, public snackBar: MatSnackBar) {}
 
   register(regUserData) {
-    return this.http.post(`http://localhost:3000/api/user/createuser`, regUserData, {headers: this.setHeader()})
+    return this.http.post(`http://localhost:3000/api/user/createuser`, regUserData).subscribe((returnData) => {
+      this.dataService.setUser(returnData);
+      var data = Object.values(returnData);
+      localStorage.setItem('token', data[2]);
+      localStorage.setItem('id', data[0].id);
+      this.isLoggedIn.next(true);
+      this.router.navigate(['/mainnav/home']);
+    })
     
   }
 
   login(loginInfo) {
     return this.http.post(`http://localhost:3000/api/user/login`, loginInfo)
     .subscribe( (token) => {
+      this.dataService.setUser(token)
       var data = Object.values(token);
       localStorage.setItem('token', data[2]);
       localStorage.setItem('id', data[0].id);
-      console.log("localstorage: ", localStorage)
       this.isLoggedIn.next(true);
       this.router.navigate(['/mainnav/home']);
     },
@@ -51,6 +59,13 @@ export class AuthService {
     localStorage.clear();
     this.isLoggedIn.next(false);
     this.router.navigate(['/login']);
+    let snackBarRef = this.snackBar.open('You successfully logged out.',"Success!", {
+      duration: 2000
+    });
+    
+    snackBarRef.afterDismissed().subscribe(() => {
+      console.log("success");
+    });
   }
   getUser(id) {
     return this.http.get(`http://localhost:3000/api/user/finduser/${id}`, id)

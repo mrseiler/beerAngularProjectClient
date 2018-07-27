@@ -5,6 +5,30 @@
 .delete {
     background-color: red;
 }
+.info {
+    margin-left: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    display: inline-block;
+    color: white;
+    border: 1px solid white;
+    text-align: center;
+    padding: 5px;
+}
+.info p {
+    font-size: 18px;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid white;
+}
+
 .wrapper {
-    margin-left: 10px;
+    background: url(../../assets/beeraccount.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    height: 92vh;
+}
+.fname {
+    display: inline-block;
 }

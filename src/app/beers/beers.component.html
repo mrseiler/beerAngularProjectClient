@@ -35,7 +35,10 @@
         <li>ABV: {{beer.abv}}</li>
         <li>Style: {{beer.style}}</li>
         <li>Rating: {{beer.rating | addArray }}</li>
-        <button mat-raised-button *ngIf="addButtonDisplay(beer.name)"(click)="setBeertoLocal(beer.name)" (click)="userBeerOpenDialog(beer.name)">Add user beer</button>
+        <div>
+          <button mat-raised-button *ngIf="addButtonDisplay(beer.name)"(click)="setBeertoLocal(beer.name)" (click)="userBeerOpenDialog(beer.name)">Add user beer</button>
+        </div>
+        
       </ul>
     </mat-card-content>
   </mat-card>

@@ -1,13 +1,17 @@
 <div class="wrapper">
-    <h2><u>First Name:</u></h2> <p>{{this.firstname}}</p>
-    <hr />
-    <h2><u>Last Name:</u></h2> <p>{{lastname}}</p>
-    <hr />
-    <h2><u>Username:</u></h2> <p>{{username}}</p>
-    <hr />
-    <h2><u>Email:</u></h2> <p>{{email}}</p>
-    <hr />
+    <div class="info">
+        <h1>My Account Info</h1>
+        <hr color="white" />
+        <div class="fname"><h3>First Name - <p> {{this.firstname}}</p></h3></div>
+        <hr color="white"/>
+        <div><h3>Last Name - <p> {{lastname}}</p></h3></div>
+        <hr color="white"/>
+        <div><h3>Username - <p> {{username}}</p></h3></div>
+        <hr color="white"/>
+        <div><h3>Email - <p> {{email}}</p></h3></div>
+        <hr color="white"/>
 
     <button mat-raised-button (click)="openDialog()" class="update">Update</button>
     <button mat-raised-button (click)="openDelete()"class="delete">Delete</button>
+    </div>
 </div>

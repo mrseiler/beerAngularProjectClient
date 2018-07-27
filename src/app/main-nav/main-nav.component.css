@@ -13,11 +13,14 @@
   z-index: 1;
 }
 .spacing{
-  height:20em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 mat-sidenav{
   box-shadow: 3px 0px 2px  rgba(0, 0, 0, 0.405)
 }
-.title {
+.logostuff {
   margin-left: 10px;
 }
+

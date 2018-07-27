@@ -4,21 +4,21 @@ import { Beer } from '../models/beer'
 import { UserbeerService } from '../services/userbeer.service'
 import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
-import { BeerDialogBoxComponent } from '../beer-dialog-box/beer-dialog-box.component';
 import { MatDialog } from '../../../node_modules/@angular/material';
 import { UserbeerdialogComponent } from '../dialogs/userbeerdialog/userbeerdialog.component'
+import { BeerDialogBoxComponent } from '../DialogBoxes/beer-dialog-box/beer-dialog-box.component';
 
 
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
-  styleUrls: ['./beers.component.css']
+  styleUrls: ['./beers.component.css'] 
 })
 export class BeersComponent implements OnInit {
-  user:any;
-  locationhad:string;
-  rating:number;
-  comment:string;
+  user: any;
+  locationhad: string;
+  rating: number;
+  comment: string;
   currentUser: any;
   beerlist:any
   beerArray:any;
@@ -54,10 +54,8 @@ export class BeersComponent implements OnInit {
               private dataService: DataService,
               public dialog: MatDialog,
               public userBeerDialog: MatDialog
-              ) {
+              ) {}
     // this.beerArray = this.getBeers()
-    
-   }
 
   ngOnInit() {
     // this.addBeer(this.beer)
@@ -74,7 +72,7 @@ export class BeersComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(BeerDialogBoxComponent, {
     });
- 
+
     dialogRef.afterClosed().subscribe(result => {
       
     });
@@ -96,19 +94,19 @@ export class BeersComponent implements OnInit {
 
   getBeers = () => {
     this.service.getBeers().subscribe((beers) => {
-    this.beerArray = Object.values(beers)
+      this.beerArray = Object.values(beers)
     })
     // console.log(this.beerArray)
   }
 
-  addBeer = (data) =>{
+  addBeer = (data) => {
     this.service.addBeer(data).subscribe()
   }
 
   getOneBeer = (id) => {
     this.service.getOneBeer(id).subscribe((beer) => {
-      console.log("beer: ",beer)
-      
+      console.log("beer: ", beer)
+
     })
   }
 
@@ -152,21 +150,21 @@ export class BeersComponent implements OnInit {
   }
 
   addToMyList = (beer, location, rating, comment) => {
-      this.userbeer = {
-        userbeer:{
-          name:beer.name,
-          locationhad: location,
-          rating: rating,
-          comment: comment
-        }
+    this.userbeer = {
+      userbeer: {
+        name: beer.name,
+        locationhad: location,
+        rating: rating,
+        comment: comment
+      }
     }
     this.userBeerCreate(this.userbeer)
   }
 
   // setUserAsBrewer(isBrewer)
 
-  getUser(){
-    this.user = function (){
+  getUser() {
+    this.user = function () {
 
     }
   }

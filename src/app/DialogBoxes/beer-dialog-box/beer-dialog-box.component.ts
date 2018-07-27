@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '../../../node_modules/@angular/material';
-import { BeerServiceService } from '../services/beer-service.service'
+import { BeerServiceService } from '../../services/beer-service.service';
+import { MatDialogRef } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-beer-dialog-box',
@@ -20,9 +20,8 @@ export class BeerDialogBoxComponent implements OnInit {
   beer:any;
   
 
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
   onSubmit():void{
     this.beer={
       beer:{
@@ -37,7 +36,7 @@ export class BeerDialogBoxComponent implements OnInit {
     
     location.reload();
   }
-
+  
   close():void{
     this.dialogRef.close()
   }

@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { DrinkersComponent } from './drinkers/drinkers.component';
 import { AuthGuard } from './guards/auth.guard';
+import { YourBeersComponent } from './beers/your-beers/your-beers.component';
 
 //using children helps auth figure out what children it has 'can be used later for finishing up'
 const routes: Route[] = [ 
@@ -18,7 +19,9 @@ const routes: Route[] = [
   { path: 'login', component: DrinkersLoginComponent},
   { path: 'mainnav', canActivate: [AuthGuard],component: MainNavComponent, children: [
     {path: 'home', component: DashboardComponent},
-    {path: 'beers', component: BeersComponent},
+    {path: 'beers', component: BeersComponent, children: [
+      { path: 'yourbeers', component: YourBeersComponent }
+    ]},
     {path: 'account', component: DrinkersComponent}
   ]},
   { path: '**', component:PageNotFoundComponent }
