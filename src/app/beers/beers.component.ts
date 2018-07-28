@@ -17,6 +17,8 @@ import { BeerDialogBoxComponent } from '../DialogBoxes/beer-dialog-box/beer-dial
 export class BeersComponent implements OnInit {
   deleted:Object[] = []
   user: any;
+  searchTerm: string;
+  searchValue: string;
   locationhad: string;
   rating: number;
   comment: string;
@@ -28,6 +30,7 @@ export class BeersComponent implements OnInit {
   searchedBeers:any;
   userbeer:any
   display:Boolean = true;
+  whatToDisplay:any;
   // beer: Beer = {
   //   beer:{
   //     name:"Tom's Beer",
@@ -72,6 +75,18 @@ export class BeersComponent implements OnInit {
     
   }
 
+  executeSearch(searchValue, searchTerm){
+    console.log(searchValue, searchTerm)
+    this.searchBeer(searchValue, searchTerm);
+    
+  }
+  setWhere=(item)=>{
+    this.searchValue=item
+    
+  }
+  buttonsPressed = function(term):void{
+    this.whatToDisplay = term;
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(BeerDialogBoxComponent, {
     });
@@ -91,13 +106,14 @@ export class BeersComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-  setBeertoLocal(beer){
-    localStorage.setItem('beername',beer)
-  }
+  // setBeertoLocal(beer){
+  //   localStorage.setItem('beername',beer)
+  // }
 
   getBeers = () => {
     this.service.getBeers().subscribe((beers) => {
       this.beerArray = Object.values(beers)
+      this.whatToDisplay = Object.values(beers)
     })
     // console.log(this.beerArray)
   }
@@ -117,9 +133,11 @@ export class BeersComponent implements OnInit {
     this.service.editBeer(data, data.id).subscribe()
   }
 
-  searchBeer = (query) => {
-    this.service.searchBeer(query).subscribe((beers) => {
+  searchBeer = (value, term) => {
+    this.service.searchBeer(value, term).subscribe((beers) => {
       this.searchedBeers = Object.values(beers)
+      this.whatToDisplay = this.searchedBeers
+      console.log(this.searchedBeers)
     })
   }
 

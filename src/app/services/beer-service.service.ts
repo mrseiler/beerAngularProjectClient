@@ -37,8 +37,8 @@ export class BeerServiceService {
     return this.http.put(`http://localhost:3000/api/beer/editbeer/${id}`, beer, {headers:this.setHeader()})
   }
 
-  searchBeer(query){
-    return this.http.get(`http://localhost:3000/api/beer/searchbeer/${query}`, {headers:this.setHeader()})
+  searchBeer(value, term){
+    return this.http.get(`http://localhost:3000/api/beer/searchbeer/${value}/${term}`, {headers:this.setHeader()})
     .pipe()
   }
 
