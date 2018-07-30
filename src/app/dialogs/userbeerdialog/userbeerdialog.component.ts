@@ -35,7 +35,7 @@ export class UserbeerdialogComponent implements OnInit {
     }
     this.addUserBeer(this.userbeer);
     
-    // location.reload();
+    location.reload();
     this.close();
   }
 

@@ -17,6 +17,7 @@ import { BeerDialogBoxComponent } from '../DialogBoxes/beer-dialog-box/beer-dial
 export class BeersComponent implements OnInit {
   deleted:Object[] = []
   user: any;
+  foundBeer:any;
   searchTerm: string;
   searchValue: string;
   locationhad: string;
@@ -52,38 +53,19 @@ export class BeersComponent implements OnInit {
     return true;
   }
 
-  // userBeerDeleteButtonDisplay(name){
-  //   for(let beer of this.userBeerArray){
-  //     if (beer.name == name){
-  //       return true
-  //     }
-  //   }
-  //   return false;
-  // }
-  
-    
   constructor(private service: BeerServiceService,
               private userbeerservice: UserbeerService,
               private dataService: DataService,
               public dialog: MatDialog,
               public userBeerDialog: MatDialog
               ) {}
-    // this.beerArray = this.getBeers()
 
   ngOnInit() {
-    // this.addBeer(this.beer)
-    // this.editBeer(this.beer)
     this.userBeerGetAll()
     this.getBeers()
-    
-    
-    // console.log("userbeer array: ", this.userBeerArray)
-    // this.currentUser = this.dataService.getUser().subscribe();
-    // console.log(this.currentUser)
   }
 
   executeSearch(searchValue, searchTerm){
-    console.log(searchValue, searchTerm)
     this.searchBeer(searchValue, searchTerm);
     
   }
@@ -113,16 +95,12 @@ export class BeersComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-  // setBeertoLocal(beer){
-  //   localStorage.setItem('beername',beer)
-  // }
 
   getBeers = () => {
     this.service.getBeers().subscribe((beers) => {
       this.beerArray = Object.values(beers)
       this.whatToDisplay = Object.values(beers)
     })
-    // console.log(this.beerArray)
   }
 
   addBeer = (data) => {
@@ -131,8 +109,7 @@ export class BeersComponent implements OnInit {
 
   getOneBeer = (id) => {
     this.service.getOneBeer(id).subscribe((beer) => {
-      console.log("beer: ", beer)
-
+      this.foundBeer=beer;
     })
   }
 
@@ -144,7 +121,6 @@ export class BeersComponent implements OnInit {
     this.service.searchBeer(value, term).subscribe((beers) => {
       this.searchedBeers = Object.values(beers)
       this.whatToDisplay = this.searchedBeers
-      console.log(this.searchedBeers)
     })
   }
 
@@ -157,7 +133,7 @@ export class BeersComponent implements OnInit {
   }
   userBeerGetOne = (name) => {
     this.userbeerservice.getOne(name).subscribe((beer) => {
-      console.log(beer)
+      this.foundBeer = beer;
     })
   }
   userBeerGetAll = () => {
@@ -176,7 +152,6 @@ export class BeersComponent implements OnInit {
   userBeerDelete = (name) => {
     this.userbeerservice.delete(name).subscribe(data => {
       this.deleted.push(data)
-      console.log("I am here")
       location.reload()
     })
   }
@@ -193,11 +168,8 @@ export class BeersComponent implements OnInit {
     this.userBeerCreate(this.userbeer)
   }
 
-  // setUserAsBrewer(isBrewer)
-
   getUser() {
     this.user = function () {
-
     }
   }
 }
