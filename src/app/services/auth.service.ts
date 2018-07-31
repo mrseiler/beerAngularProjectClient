@@ -51,9 +51,7 @@ export class AuthService {
     err => {
       console.log(err);
       this.flashMessage.show(err.error.error, { 
-        timeout: 2000,
-        style: "red",
-        styleURLs: ['./auth/drinkers-login/drinkers-login.component.css']
+        timeout: 2000
       });
     }
   )

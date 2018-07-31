@@ -1,5 +1,5 @@
 <mat-card class="filter">
-  <div class="topinfo">
+  <span class="topinfo">
   <span class="topsearch">
     <h3>Search our beer database</h3>
     <mat-form-field>
@@ -14,12 +14,18 @@
     </mat-form-field>
   <button mat-button class="searchbutton" (click)="executeSearch(searchValue, searchTerm.value)">Search</button>
 </span>
+<div class="buttons">
   <div>
     <button mat-raised-button class="addbeer" (click)="openDialog()">+Beer</button>
-    <button mat-raised-button class="mybeers" (click)="buttonsPressed(userBeerArray)">My Beers</button>
-    <button mat-raised-button class="allbeers" (click)="buttonsPressed(beerArray)">All Beers</button>
   </div>
-</div>
+  <div>
+    <button mat-raised-button class="singlebutton" (click)="buttonsPressed(userBeerArray)" (click)="toggleButton()">My Beers</button>
+  </div>
+  <div>
+    <button mat-raised-button class="singlebutton" (click)="buttonsPressed(beerArray)" (click)="toggleButton()">All Beers</button>
+  </div>
+  </div>
+</span>
 
 </mat-card>
 <div class="card-container">

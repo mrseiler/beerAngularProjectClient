@@ -9,6 +9,7 @@
     grid-gap: 1em;
     margin-left: 1em;
     margin-right: 1em;
+    padding-bottom: 1em;
     grid-template-areas: 
     "welcome welcome welcome welcome"
     "brewery brewery brewery brewery"
@@ -27,7 +28,8 @@
 }
 .breweryOTM{
     grid-area: brewery;
-    
+    background: url('../../assets/fourdayray.jpg');
+    background-repeat: no-repeat;
 }
 .featuredBeerOne{
     grid-area: beerOne;
@@ -46,4 +48,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: #6BBA62;
+}
+.fattire {
+    position: absolute;
+    margin-left: 60%;
+    z-index: 500;
 }

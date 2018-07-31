@@ -4,19 +4,22 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1em;
+    
 }
 .card-info{
     margin: 1em;
     background: #9AE17B;
 }
-.spacing{
-    flex: 1 1 auto;
-}
 .filter{
-    background: #307470;
+    width: auto;
+    background: linear-gradient(to bottom, #307470 , yellow);
 }
+/* .filter{
+    background: #307470;
+} */
 .beerCards-Color{
-    background: rgba(154, 225, 123, 0.741);
+     background: rgba(154, 225, 123, 0.741); 
+
 }
 @media screen and (max-width: 770px){
 
@@ -34,6 +37,7 @@
     display:grid;
     grid-template-columns: 1fr;
     grid-gap: 1em;
+    
     }
 }
 .addbeer {
@@ -41,10 +45,9 @@
 }
 .topsearch {
     display: inline-block;
-    border: 1px solid black;
     padding: 5px;
-    border-radius: 10px;
-    background: linear-gradient(to bottom, lightgreen , yellow);
+    border-right: 1px solid black;
+    margin-bottom: 5px;
 }
 .topsearch h3 {
     text-align: center;
@@ -56,8 +59,22 @@
     margin-left: 5px;
 }
 .topinfo {
+    width: 100%;
     display: inline-block;
 }
 .buttons {
-    display: block;
+    display: inline-block;
+    width: 50%;
+    margin-left: 5px;
+}
+.singlebutton {
+    width: 100%;
+    margin-top: 5px;
+}
+.addbeer {
+    width: 100%;
+    margin-top: 5px;
+}
+singlebutton:active {
+    background: lightgreen;
 }

@@ -54,7 +54,7 @@ export class BeersComponent implements OnInit {
     }
     return true;
   }
-
+    
   constructor(private service: BeerServiceService,
               private userbeerservice: UserbeerService,
               private dataService: DataService,
@@ -65,6 +65,9 @@ export class BeersComponent implements OnInit {
   ngOnInit() {
     this.userBeerGetAll()
     this.getBeers(this.page)
+  }
+  toggleButton() {
+    
   }
 
   executeSearch(searchValue, searchTerm){
@@ -175,4 +178,5 @@ export class BeersComponent implements OnInit {
     this.user = function () {
     }
   }
+
 }
