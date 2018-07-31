@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerServiceService } from '../../services/beer-service.service';
-import { MatDialogRef } from '../../../../node_modules/@angular/material';
+import { MatDialogRef, MatSnackBar } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-beer-dialog-box',
@@ -10,7 +10,7 @@ import { MatDialogRef } from '../../../../node_modules/@angular/material';
 export class BeerDialogBoxComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<BeerDialogBoxComponent>,
-              private service:BeerServiceService) { }
+              private service:BeerServiceService, public snackBar: MatSnackBar) { }
 
   name:string;
   brewery:string;
@@ -18,6 +18,7 @@ export class BeerDialogBoxComponent implements OnInit {
   style:string;
   abv:number;
   beer:any;
+  beers: Object[] = [];
   
 
   ngOnInit() {}
@@ -33,14 +34,22 @@ export class BeerDialogBoxComponent implements OnInit {
       }
     }
     this.addBeer(this.beer);
-    
-    location.reload();
-  }
+    }
   
   close():void{
     this.dialogRef.close()
   }
   addBeer = (data) =>{
-    this.service.addBeer(data).subscribe()
+    this.service.addBeer(data).subscribe(stuff => {
+      this.beers.push(stuff)
+      let snackBarRef = this.snackBar.open('You successfully added a beer.',"Success!", {
+        duration: 1000,
+        panelClass: ["snackbar"]
+      });
+      
+      snackBarRef.afterDismissed().subscribe(() => {
+        location.reload();
+      });
+    })
   }
 }

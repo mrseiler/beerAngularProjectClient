@@ -16,19 +16,13 @@
 </span>
 <div class="buttons">
   <div>
-<<<<<<< HEAD
-    <button mat-raised-button class="addbeer" (click)="openDialog()">Add a Beer</button>
-=======
     <button mat-raised-button class="addbeer" (click)="openDialog()">+Beer</button>
-    <button mat-raised-button class="mybeers" (click)="buttonsPressed(userBeerArray)">My Beers</button>
-    <button mat-raised-button class="allbeers" (click)="buttonsPressed(beerArray)">All Beers</button>
->>>>>>> 9055fc5c3634b508b8b0ae56fdc57f4e441b7184
   </div>
   <div>
-    <button mat-raised-button class="singlebutton" (click)="toggleButton()">My Beers</button>
+    <button mat-raised-button class="singlebutton" (click)="buttonsPressed(userBeerArray)" (click)="toggleButton()">My Beers</button>
   </div>
   <div>
-    <button mat-raised-button class="singlebutton" (click)="toggleButton()">All Beers</button>
+    <button mat-raised-button class="singlebutton" (click)="buttonsPressed(beerArray)" (click)="toggleButton()">All Beers</button>
   </div>
   </div>
 </span>
@@ -46,7 +40,7 @@
         <li>Style: {{beer.style}}</li>
         <li>Rating: {{beer.rating | addArray }}</li>
         <div>
-          <button mat-raised-button *ngIf="addButtonDisplay(beer.name)"(click)="setBeertoLocal(beer.name)" (click)="userBeerOpenDialog(beer.name)">Add user beer</button>
+          <button mat-raised-button *ngIf="addButtonDisplay(beer.name)"(click)="userBeerOpenDialog(beer.name)">Add user beer</button>
           <button mat-raised-button *ngIf="!addButtonDisplay(beer.name)"(click)="userBeerDelete(beer.name)">Delete user beer</button>
         </div>
 
