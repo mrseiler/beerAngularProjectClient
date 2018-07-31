@@ -1,38 +1,37 @@
-.wrapper {
-    background-color:white;
-    position: absolute;
-    width: 30%;
-    padding: 5px;
-    margin-left: 55ch;
-    margin-right: auto;
-    margin-top: 100px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-.body {
+.gridArea{
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    grid-template-rows: 30% 40% 30%;
+    height: 100%;
+ }
+ .mat-card{
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+ }
+ .body {
     margin-left: 1em;
-}
-.wrapper h2 {
+ }
+ .wrapper h2 {
     text-align: center;
-}
-.wrapper a {
+ }
+ .wrapper a {
     text-decoration: none;
     color: black;
-}
-.wrapper a:hover {
+ }
+ .wrapper a:hover {
     text-decoration: underline;
     opacity: .9;
-}
-.wrapper button {
+ }
+ .wrapper button {
     background-color: rgb(240, 240, 48);
     margin-bottom: 1em;
-}
-.background {
+ }
+ .background {
     background: url('../../../assets/barbackground.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-}
-.flash {
+ }
+ .flash {
     background-color: green;
-}
+ }

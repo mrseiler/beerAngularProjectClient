@@ -3,33 +3,32 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-}
-.wrapper {
-    background-color:white;
-    position: absolute;
-    width: 30%;
-    padding: 5px;
-    margin-right: auto;
-    margin-left: 55ch;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-top: 80px;
-}
-.body {
+ }
+ .gridArea{
+    display: grid;
+    grid-template-columns: 36% 26% 36%;
+    grid-template-rows: 15% 70% 15%;
+    height: 100%;
+ }
+ .matCard{
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+ }
+ .body {
     margin-left: 1em;
-}
-.wrapper h2 {
+ }
+ .wrapper h2 {
     text-align: center;
-}
-.wrapper a {
+ }
+ .wrapper a {
     text-decoration: none;
     color: black;
-}
-.wrapper a:hover {
+ }
+ .wrapper a:hover {
     text-decoration: underline;
     opacity: .9;
-}
-.wrapper button {
+ }
+ .wrapper button {
     background-color: rgb(240, 240, 48);
     margin-bottom: 1em;
-}
+ }
