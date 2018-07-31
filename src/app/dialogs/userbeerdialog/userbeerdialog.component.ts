@@ -5,7 +5,7 @@ import { UserbeerService } from '../../services/userbeer.service'
 
 @Component({
   selector: 'app-userbeerdialog',
-  template: 'passed in {{name}}',
+  // template: 'passed in {{name}}',
   templateUrl: './userbeerdialog.component.html',
   styleUrls: ['./userbeerdialog.component.css']
 })
