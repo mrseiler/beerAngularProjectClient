@@ -26,7 +26,6 @@ export class DrinkersComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   } 
   openDelete(): void {
@@ -34,7 +33,6 @@ export class DrinkersComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   } 
   openSnackBar(message: string, action: string) {

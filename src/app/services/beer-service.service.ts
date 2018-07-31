@@ -29,7 +29,6 @@ export class BeerServiceService {
   }
 
   editRating(name, rating){ 
-    console.log(name, rating)
     return this.http.put(`http://localhost:3000/api/beer/addrating/${name}`, rating, {headers:this.setHeader()})
   }
 

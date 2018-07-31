@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerServiceService } from '../services/beer-service.service'
-import { Beer } from '../models/beer'
 import { UserbeerService } from '../services/userbeer.service'
-import { UserBeer } from '../models/userBeer'
 import { DataService } from '../services/data.service'
 import { MatDialog } from '../../../node_modules/@angular/material';
 import { UserbeerdialogComponent } from '../dialogs/userbeerdialog/userbeerdialog.component'
@@ -86,7 +84,6 @@ export class BeersComponent implements OnInit {
     });
  
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 
@@ -94,7 +91,6 @@ export class BeersComponent implements OnInit {
     this.service.getBeers(page).subscribe((beers) => {
       this.beerArray = Object.values(beers)
       this.whatToDisplay = Object.values(beers)
-      console.log(beers)
     })
   }
 

@@ -55,7 +55,6 @@ export class UserbeerdialogComponent implements OnInit {
       }
     
     this.service.editRating(name, beer).subscribe((res) => {
-      console.log("edit res: ",res)
     },
     err => {console.log(err)})
   }
