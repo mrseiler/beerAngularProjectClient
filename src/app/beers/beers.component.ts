@@ -32,6 +32,8 @@ export class BeersComponent implements OnInit {
   userbeer:any
   display:Boolean = true;
   whatToDisplay:any;
+  page:number = 1;
+  totalPages:number;
   // beer: Beer = {
   //   beer:{
   //     name:"Tom's Beer",
@@ -62,7 +64,7 @@ export class BeersComponent implements OnInit {
 
   ngOnInit() {
     this.userBeerGetAll()
-    this.getBeers()
+    this.getBeers(this.page)
   }
 
   executeSearch(searchValue, searchTerm){
@@ -96,10 +98,11 @@ export class BeersComponent implements OnInit {
     });
   }
 
-  getBeers = () => {
-    this.service.getBeers().subscribe((beers) => {
+  getBeers = (page) => {
+    this.service.getBeers(page).subscribe((beers) => {
       this.beerArray = Object.values(beers)
       this.whatToDisplay = Object.values(beers)
+      console.log(beers)
     })
   }
 

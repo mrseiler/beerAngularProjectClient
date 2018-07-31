@@ -13,8 +13,8 @@ export class BeerServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getBeers(){
-    return this.http.get('http://localhost:3000/api/beer/getallbeers', {headers:this.setHeader()})
+  getBeers(page){
+    return this.http.get(`http://localhost:3000/api/beer/getallbeers/${page}`, {headers:this.setHeader()})
     .pipe()
   }
 
