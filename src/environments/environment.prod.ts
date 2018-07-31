@@ -2,7 +2,7 @@ export const environment = {
   production: true
 };
 
-let APIURL = "";
+export let APIURL = "";
 switch (window.location.hostname) {
   case 'holdmybeerclient.herokuapp.com':
     APIURL='https://holdmybeerapi.herokuapp.com'
@@ -14,7 +14,6 @@ switch (window.location.hostname) {
 }
 
 
-export default APIURL
 
 
 
