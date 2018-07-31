@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { APIURL } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,6 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   getUser(){
-  return this.http.get('http://localhost:3000/api/user/getuser', {headers:this.setHeader()}).pipe()
+  return this.http.get(`${APIURL}//api/user/getuser`, {headers:this.setHeader()}).pipe()
   }
 }

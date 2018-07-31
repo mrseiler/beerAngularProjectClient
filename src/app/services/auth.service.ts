@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
 import { DataService } from './data.service'
 import { MatSnackBar } from '../../../node_modules/@angular/material';
 import { FlashMessagesService } from '../../../node_modules/angular2-flash-messages';
+import { APIURL } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class AuthService {
   constructor(public http: HttpClient, public router: Router, private dataService: DataService, public snackBar: MatSnackBar, public flashMessage: FlashMessagesService) {}
 
   register(regUserData) {
-    return this.http.post(`http://localhost:3000/api/user/createuser`, regUserData).subscribe((returnData) => {
+    return this.http.post(`${APIURL}/api/user/createuser`, regUserData).subscribe((returnData) => {
       this.dataService.setUser(returnData);
       var data = Object.values(returnData);
       localStorage.setItem('token', data[2]);
@@ -32,7 +33,7 @@ export class AuthService {
   }
 
   login(loginInfo) {
-    return this.http.post(`http://localhost:3000/api/user/login`, loginInfo)
+    return this.http.post(`${APIURL}//api/user/login`, loginInfo)
     .subscribe( (token) => {
       this.dataService.setUser(token)
       var data = Object.values(token);
@@ -57,13 +58,13 @@ export class AuthService {
   )
   }
   updateUser(user) {
-    return this.http.put(`http://localhost:3000/api/user/update/${localStorage.id}`, user)
+    return this.http.put(`${APIURL}//api/user/update/${localStorage.id}`, user)
   }
   
   currentUser(): Observable<Object> {
     if(!localStorage.getItem('id_token')) {return new Observable(observer => observer.next(false));}
     
-    return this.http.get(`http://localhost:3000/api/user/myaccount`, { headers: this.setHeader() });
+    return this.http.get(`${APIURL}//api/user/myaccount`, { headers: this.setHeader() });
   }
 
   logout(): void{
@@ -79,13 +80,13 @@ export class AuthService {
     });
   }
   getUser(id) {
-    return this.http.get(`http://localhost:3000/api/user/finduser/${id}`, id)
+    return this.http.get(`${APIURL}/api/user/finduser/${id}`, id)
   }
   update(id ,userInfo) {
-    return this.http.put(`http://localhost:3000/api/user/update/${id}`, userInfo)
+    return this.http.put(`${APIURL}/api/user/update/${id}`, userInfo)
   }
   deleteUser(id) {
-    return this.http.delete(`http://localhost:3000/api/user/delete/${id}`)
+    return this.http.delete(`${APIURL}/api/user/delete/${id}`)
   }
 
   private setHeader(): HttpHeaders {

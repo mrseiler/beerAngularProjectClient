@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { APIURL } from '../../environments/environment.prod';
 
 
 @Injectable({
@@ -15,22 +16,22 @@ export class UserbeerService {
   constructor(private http:HttpClient) { }
 
   create(data){
-    return this.http.post('http://localhost:3000/api/userbeer/createuserbeer', data, {headers:this.setHeader()}).pipe()
+    return this.http.post(`${APIURL}/api/userbeer/createuserbeer`, data, {headers:this.setHeader()}).pipe()
   }
   getOne(name){
-    return this.http.get(`http://localhost:3000/api/userbeer/getbeer/${name}`, {headers:this.setHeader()}).pipe()
+    return this.http.get(`${APIURL}/api/userbeer/getbeer/${name}`, {headers:this.setHeader()}).pipe()
   }
   getAll(){
-    return this.http.get('http://localhost:3000/api/userbeer/getallbeers', {headers:this.setHeader()}).pipe()
+    return this.http.get(`${APIURL}/api/userbeer/getallbeers`, {headers:this.setHeader()}).pipe()
   }
   search(query){
-    return this.http.get(`http://localhost:3000/api/userbeer/search/${query}`, {headers:this.setHeader()}).pipe()
+    return this.http.get(`${APIURL}/api/userbeer/search/${query}`, {headers:this.setHeader()}).pipe()
   }
   edit(edit){
-    return this.http.put(`http://localhost:3000/api/userbeer/search/${edit}`, {headers:this.setHeader()}).pipe()
+    return this.http.put(`${APIURL}/api/userbeer/search/${edit}`, {headers:this.setHeader()}).pipe()
   }
   delete(name){
-    return this.http.delete(`http://localhost:3000/api/userbeer/delete/${name}`, {headers:this.setHeader()}).pipe()
+    return this.http.delete(`${APIURL}/api/userbeer/delete/${name}`, {headers:this.setHeader()}).pipe()
   }
   
 

@@ -40,7 +40,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddArrayPipe } from './add-array.pipe';
 import { UserbeerdialogComponent } from './dialogs/userbeerdialog/userbeerdialog.component';
 import { AccountDialogComponent } from './DialogBoxes/account-dialog/account-dialog.component';
-import { YourBeersComponent } from './beers/your-beers/your-beers.component';
 import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/update-user-snackbar.component';
 
 @NgModule({
@@ -62,7 +61,6 @@ import { UpdateUserSnackbarComponent } from './snackbars/update-user-snackbar/up
     AccountDialogComponent,
     DeleteAccountDialogComponent,
     UserbeerdialogComponent,
-    YourBeersComponent,
     UpdateUserSnackbarComponent,
   ],
   imports: [
