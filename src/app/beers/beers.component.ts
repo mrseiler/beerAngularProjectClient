@@ -34,17 +34,6 @@ export class BeersComponent implements OnInit {
   whatToDisplay:any;
   page:number = 1;
   totalPages:number;
-  // beer: Beer = {
-  //   beer:{
-  //     name:"Tom's Beer",
-  //     brewery:"Founder's",
-  //     breweryLocation:"Grand Rapids, MI",
-  //     style:"IPA",
-  //     abv:4,
-  //     rating:[3, 4, 5, 6, 2],
-  //     validatedByBrewer:false
-  //   }
-  // }
 
   addButtonDisplay(name){
     for(let beer of this.userBeerArray){
