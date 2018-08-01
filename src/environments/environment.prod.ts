@@ -2,13 +2,13 @@ export const environment = {
   production: true
 };
 
-export let APIURL = "https://holdmybeerapi.herokuapp.com";
-// switch (window.location.hostname) {
-//   case 'holdmybeerclient.herokuapp.com':
-//     APIURL='https://holdmybeerapi.herokuapp.com'
-//     break;
+export let APIURL = "";
+switch (window.location.hostname) {
+  case 'holdmybeerclient.herokuapp.com':
+    APIURL='https://holdmybeerapi.herokuapp.com'
+    break;
 
-//   default:
-//   APIURL = 'http://localhost:3000'
-//     break;
-// }
+  default:
+  APIURL = 'http://localhost:3000'
+    break;
+}
