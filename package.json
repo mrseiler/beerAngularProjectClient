@@ -32,7 +32,9 @@
     "@auth0/angular-jwt": "^2.0.0",
     "angular2-flash-messages": "^2.0.5",
     "core-js": "^2.5.4",
+    "dependency-check": "^3.2.0",
     "font-awesome": "^4.7.0",
+    "npm-install-missing": "^0.1.4",
     "rxjs": "^6.0.0",
     "serve": "^9.4.0",
     "zone.js": "^0.8.26"
