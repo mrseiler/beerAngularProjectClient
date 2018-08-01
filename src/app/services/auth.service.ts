@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   login(loginInfo) {
-    return this.http.post(`${APIURL}//api/user/login`, loginInfo)
+    return this.http.post(`${APIURL}/api/user/login`, loginInfo)
     .subscribe( (token) => {
       this.dataService.setUser(token)
       var data = Object.values(token);
@@ -58,13 +58,13 @@ export class AuthService {
   )
   }
   updateUser(user) {
-    return this.http.put(`${APIURL}//api/user/update/${localStorage.id}`, user)
+    return this.http.put(`${APIURL}/api/user/update/${localStorage.id}`, user)
   }
   
   currentUser(): Observable<Object> {
     if(!localStorage.getItem('id_token')) {return new Observable(observer => observer.next(false));}
     
-    return this.http.get(`${APIURL}//api/user/myaccount`, { headers: this.setHeader() });
+    return this.http.get(`${APIURL}/api/user/myaccount`, { headers: this.setHeader() });
   }
 
   logout(): void{

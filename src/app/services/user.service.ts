@@ -12,6 +12,6 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   getUser(){
-  return this.http.get(`${APIURL}//api/user/getuser`, {headers:this.setHeader()}).pipe()
+  return this.http.get(`${APIURL}/api/user/getuser`, {headers:this.setHeader()}).pipe()
   }
 }
