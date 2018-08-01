@@ -5,7 +5,7 @@ export const environment = {
 export let APIURL = "";
 switch (window.location.hostname) {
   case 'holdmybeerclient.herokuapp.com':
-    APIURL='https://holdmybeerapi.herokuapp.com'
+    APIURL='https://holdmybeerclient.herokuapp.com'
     break;
 
   default:
