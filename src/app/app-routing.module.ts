@@ -12,14 +12,14 @@ import { AuthGuard } from './guards/auth.guard';
 
 //using children helps auth figure out what children it has 'can be used later for finishing up'
 const routes: Route[] = [ 
-  { path: '/', redirectTo:'auth', pathMatch: 'full' },
-  { path: '/auth', component: AuthComponent },
-  { path: '/signup', component: DrinkersSignupComponent },
-  { path: '/login', component: DrinkersLoginComponent},
-  { path: '/mainnav', canActivate: [AuthGuard],component: MainNavComponent, children: [
-    {path: '/home', component: DashboardComponent},
-    {path: '/beers', component: BeersComponent},
-    {path: '/account', component: DrinkersComponent}
+  { path: '', redirectTo:'/auth', pathMatch: 'full' },
+  { path: 'auth', component: AuthComponent },
+  { path: 'signup', component: DrinkersSignupComponent },
+  { path: 'login', component: DrinkersLoginComponent},
+  { path: 'mainnav', canActivate: [AuthGuard],component: MainNavComponent, children: [
+    {path: 'home', component: DashboardComponent},
+    {path: 'beers', component: BeersComponent},
+    {path: 'account', component: DrinkersComponent}
   ]},
   { path: '**', component:PageNotFoundComponent }
 ];
